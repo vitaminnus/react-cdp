@@ -8,7 +8,8 @@
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack/prod.config.js",
     "prod": "npm run build && cross-env NODE_ENV=production node server",
     "test": "jest --config ./config/jest/jest.config.js",
-    "lint": "eslint . && stylelint ./**/*.scss"
+    "lint": "eslint . && stylelint ./**/*.scss",
+    "now-build": "npm run build"
   },
   "repository": {
     "type": "git",
