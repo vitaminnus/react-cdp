@@ -1,0 +1,31 @@
+@import "../../utils/constants.scss";
+
+.wrapper {
+  background-image: url(../../assets/images/cover-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.section {
+  padding: 0 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+@media screen and (max-width: $tablet-size-screen) {
+  .section {
+    padding: 0 20px;
+  }
+}

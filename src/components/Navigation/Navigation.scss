@@ -1,0 +1,60 @@
+@import "../../utils/constants.scss";
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $line-color;
+  padding: 0 50px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sortTitle {
+  margin: 0 10px;
+}
+
+.link {
+  height: 30px;
+  color: $light-red;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 22px;
+  font-family: $helvetica;
+  margin: 0 10px;
+  font-weight: normal;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 2px solid $light-red;
+}
+
+@media screen and (max-width: $tablet-size-screen) {
+  .link {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: $phone-size-screen) {
+  .view-icons {
+    display: none;
+  }
+
+  .link {
+    font-size: 10px;
+  }
+}

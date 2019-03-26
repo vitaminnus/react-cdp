@@ -36,6 +36,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log('Example app listening on port 5000!\n'); // eslint-disable-line no-console
+app.listen(process.env.PORT || 4100, () => {
+  console.log('Example app listening on port 4100!\n'); // eslint-disable-line no-console
 });

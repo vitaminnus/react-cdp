@@ -1,0 +1,23 @@
+@import "../../utils/constants.scss";
+
+.footer {
+  height: 130px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  background-color: $dark-gray;
+  text-align: center;
+  font-family: $helvetica;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -130px;
+  padding: 0 60px;
+
+  .name {
+    color: $light-red;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 800;
+  }
+}

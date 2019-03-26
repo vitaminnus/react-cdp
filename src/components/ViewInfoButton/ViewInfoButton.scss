@@ -1,0 +1,46 @@
+@import "../../utils/constants.scss";
+
+.container {
+  position: relative;
+}
+
+.show-text-block {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: $tooltip-color;
+  padding: 5px 10px;
+  width: 200px;
+
+  ::before {
+    content: '';
+    box-sizing: border-box;
+    border: 12px solid transparent;
+    border-top-color: $tooltip-color;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);
+  }
+}
+
+.show-text {
+  color: white;
+  text-align: left;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+@media screen and (max-width: $tablet-size-screen) {
+  .show-text-block {
+    left: 0%;
+    transform: translate(-50%, -100%);
+
+    ::before {
+      content: '';
+      left: 100%;
+      transform: translate(-200%, 100%);
+    }
+  }
+}

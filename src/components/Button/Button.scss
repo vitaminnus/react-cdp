@@ -1,0 +1,43 @@
+@import "../../utils/constants.scss";
+
+.button {
+  height: 30px;
+  width: 100px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-family: $helvetica;
+  line-height: 22px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 10px;
+  outline: none;
+  text-transform: uppercase;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.big {
+  width: 150px;
+  height: 40px;
+  margin: 0;
+}
+
+.red {
+  background-color: $light-red;
+
+  &:hover {
+    background-color: lighten($light-red, 20%);
+  }
+}
+
+.black {
+  background-color: $dark-gray;
+
+  &:hover {
+    color: darken(white, 20%);
+  }
+}
