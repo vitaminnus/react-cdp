@@ -7,8 +7,9 @@ const Button = ({
   text,
   onClick,
   isMain,
+  className,
 }) => (
-  <button className={`${styles.button} ${isMain ? styles.big : ''} ${styles[type]}`} type="button" onClick={onClick}>
+  <button className={`${styles.button} ${isMain ? styles.big : ''} ${styles[type]} ${className}`} type="button" onClick={onClick}>
     {text}
   </button>
 );
@@ -18,9 +19,11 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   isMain: PropTypes.bool,
+  className: PropTypes.string,
 };
 Button.defaultProps = {
   onClick: null,
   isMain: null,
+  className: null,
 };
 export default Button;

@@ -41,3 +41,12 @@
     color: darken(white, 20%);
   }
 }
+
+.white {
+  background-color: white;
+  color: $light-red;
+
+  &:hover {
+    color: darken(white, 20%);
+  }
+}

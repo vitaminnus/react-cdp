@@ -10,17 +10,25 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $line-color;
-  padding: 0 50px;
+  padding: 0 130px;
 }
 
 .nav-links {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 400px;
+}
+
+.foundTitle {
+  font-size: 24px;
+  text-align: center;
 }
 
 .sortTitle {
   margin: 0 10px;
+  font-size: 22px;
+  width: 100%;
 }
 
 .link {
@@ -36,6 +44,8 @@
   border: none;
   background-color: transparent;
   outline: none;
+  z-index: 5;
+  width: 100%;
 }
 
 .active {
@@ -46,15 +56,34 @@
 @media screen and (max-width: $tablet-size-screen) {
   .link {
     font-size: 12px;
+    margin: 0 5px;
+    line-height: 1;
+  }
+
+  .nav-links {
+    width: 280px;
   }
 }
 
 @media screen and (max-width: $phone-size-screen) {
-  .view-icons {
-    display: none;
+  .container {
+    padding: 0 20px;
   }
 
   .link {
     font-size: 10px;
+  }
+
+  .foundTitle {
+    font-size: 18px;
+  }
+
+  .sortTitle {
+    text-align-last: left;
+    font-size: 14px;
+  }
+
+  .nav-links {
+    width: 200px;
   }
 }

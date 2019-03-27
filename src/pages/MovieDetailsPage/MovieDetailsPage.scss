@@ -24,8 +24,21 @@
   width: 100vw;
 }
 
+.searchButton {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  z-index: 10;
+}
+
 @media screen and (max-width: $tablet-size-screen) {
   .section {
     padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: $phone-size-screen) {
+  .searchButton {
+    right: 20px;
   }
 }
