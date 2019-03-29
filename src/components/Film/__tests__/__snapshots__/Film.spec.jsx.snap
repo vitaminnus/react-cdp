@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Film Snapshot renders 1`] = `
+<div
+  className="container"
+  id="film"
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="poster"
+      style={
+        Object {
+          "backgroundImage": "url(test-file-stub)",
+        }
+      }
+    />
+    <FilmInfo
+      genres={
+        Array [
+          "Drama",
+          "Comedy",
+        ]
+      }
+      name="Captain Marvel"
+      year="1984"
+    />
+  </div>
+</div>
+`;
+
+exports[`Film Snapshot renders without PosterPath 1`] = `
+<div
+  className="container"
+  id="film"
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="poster"
+      style={
+        Object {
+          "backgroundImage": "url(test-file-stub)",
+        }
+      }
+    />
+    <FilmInfo
+      genres={
+        Array [
+          "Drama",
+          "Comedy",
+        ]
+      }
+      name="Captain Marvel"
+      year="1984"
+    />
+  </div>
+</div>
+`;

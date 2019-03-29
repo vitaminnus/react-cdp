@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './MoviesList.scss';
 import MovieInfo from '../../components/MovieInfo';
 import '../../assets/images/poster.jpg';
@@ -70,12 +71,16 @@ const films = [
 ];
 
 
-const MoviesList = () => (
+const MoviesList = ({ onClick }) => (
   <div className={styles.wrapper}>
     <section className={styles.section}>
-      <MovieInfo films={films} />
+      <MovieInfo films={films} onClick={onClick} />
     </section>
   </div>
 );
+
+MoviesList.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default MoviesList;

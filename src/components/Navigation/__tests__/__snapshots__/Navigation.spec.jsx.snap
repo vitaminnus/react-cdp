@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation Snapshot renders 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="container"
+  >
+    <h3
+      className="foundTitle"
+    >
+      9 movies found
+    </h3>
+    <nav
+      className="nav-links"
+    >
+      <h3
+        className="sortTitle"
+      >
+        Sort by
+      </h3>
+      <button
+        className="link"
+        type="button"
+      >
+        release date
+      </button>
+      <button
+        className="link"
+        type="button"
+      >
+        rating
+      </button>
+    </nav>
+  </div>
+</div>
+`;

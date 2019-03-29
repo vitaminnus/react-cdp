@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Snapshot renders 1`] = `
+<button
+  className="button  black null"
+  id={null}
+  onClick={[Function]}
+  type="button"
+>
+  View Info
+</button>
+`;
+
+exports[`Button blue Snapshot renders 1`] = `
+<button
+  className="button  blue null"
+  id={null}
+  onClick={[Function]}
+  type="button"
+>
+  View Info
+</button>
+`;
+
+exports[`Button blue Snapshot renders 2`] = `
+<button
+  className="button big blue null"
+  id={null}
+  onClick={[Function]}
+  type="button"
+>
+  View Info
+</button>
+`;

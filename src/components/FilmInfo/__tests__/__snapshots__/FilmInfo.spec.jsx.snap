@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmInfo Snapshot renders 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="film-description"
+  >
+    <div
+      className="titleWrapper"
+    >
+      <div
+        className="name"
+      >
+        Captain Marvel
+      </div>
+      <div
+        className="year"
+      >
+        1984
+      </div>
+    </div>
+    <div
+      className="info"
+    >
+      <div
+        className="genres"
+      >
+        <span
+          className="genre"
+        >
+          Drama
+        </span>
+        <span
+          className="genre"
+        >
+          Comedy
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

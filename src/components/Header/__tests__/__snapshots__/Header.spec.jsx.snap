@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Snapshot renders 1`] = `
+<header
+  className="header"
+>
+  <p
+    className="logo"
+  >
+    netflixroulette
+  </p>
+</header>
+`;

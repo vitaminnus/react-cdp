@@ -1,6 +1,7 @@
 module.exports = {
+  verbose: true,
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx}', '!src/index.jsx', '!src/store.js'],
+  collectCoverageFrom: ['./src/**/*.{js,jsx}', '!src/index.jsx', '!src/store.js', '!cypress/integration/search-input.spec.js'],
   moduleNameMapper: {
     '\\.(css|sass|scss)$': 'identity-obj-proxy',
     '\\.(png|jpg)$': '<rootDir>/config/jest/__mocks__/fileMock.js',

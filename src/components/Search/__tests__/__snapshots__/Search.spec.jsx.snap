@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Snapshot render 1`] = `
+<div
+  className="searchWrapper"
+>
+  <p
+    className="searchText"
+  >
+    find your movie
+  </p>
+  <input
+    className="search"
+    placeholder="search film"
+    type="text"
+  />
+  <div
+    className="buttonsWrapper"
+  >
+    <div
+      className="btnWrapper"
+    >
+      <h3
+        className="searchTitle"
+      >
+        SEARCH BY
+      </h3>
+      <Button
+        className={null}
+        id={null}
+        isMain={null}
+        onClick={null}
+        text="title"
+        type="red"
+      />
+      <Button
+        className={null}
+        id={null}
+        isMain={null}
+        onClick={null}
+        text="genre"
+        type="black"
+      />
+    </div>
+    <Button
+      className={null}
+      id={null}
+      isMain={true}
+      onClick={null}
+      text="SEARCH"
+      type="red"
+    />
+  </div>
+</div>
+`;
