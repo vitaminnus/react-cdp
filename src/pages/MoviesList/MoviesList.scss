@@ -1,0 +1,22 @@
+@import "../../utils/constants.scss";
+
+.wrapper {
+  background-color: $light-gray;
+  margin-bottom: 130px;
+}
+
+.section {
+  padding: 20px 60px;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: $tablet-size-screen) {
+  .section {
+    padding: 0 20px;
+  }
+}

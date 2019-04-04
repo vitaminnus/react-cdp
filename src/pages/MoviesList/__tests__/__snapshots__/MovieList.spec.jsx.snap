@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo Snapshot render 1`] = `
+<div
+  className="wrapper"
+>
+  <section
+    className="section"
+  >
+    <MovieInfo
+      films={
+        Array [
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "13456",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "3636",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "547568",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "25567",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "78909786",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "546575",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "78908484",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "5365878",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+          Object {
+            "genres": Array [
+              "Drama",
+              "Comedy",
+            ],
+            "id": "9837609",
+            "name": "Captain Marvel",
+            "poster_path": "../../assets/images/poster.jpg",
+            "year": "1984",
+          },
+        ]
+      }
+      onClick={[MockFunction]}
+    />
+  </section>
+</div>
+`;

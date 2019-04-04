@@ -1,0 +1,30 @@
+@import "../../utils/constants.scss";
+
+.container {
+  justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+  font-family: $helvetica;
+  margin-top: 20px;
+
+  .wrapper {
+    height: 470px;
+    width: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: all ease 0.3s;
+
+    &:hover {
+      transform: translate(3px 3px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .poster {
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 370px;
+      text-align: center;
+    }
+  }
+}

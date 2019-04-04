@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo Snapshot render 1`] = `
+<div
+  className="list"
+>
+  <Film
+    genres={
+      Array [
+        "Drama",
+        "Comedy",
+      ]
+    }
+    name="Captain Marvel"
+    onClick={[MockFunction]}
+    posterPath="../../assets/images/poster.jpg"
+    year="1984"
+  />
+</div>
+`;

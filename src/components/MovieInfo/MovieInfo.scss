@@ -1,0 +1,15 @@
+@import "../../utils/constants.scss";
+
+.list {
+  display: flex;
+  flex-direction: row;
+  max-width: 1270px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: $tablet-landscape-screen) {
+  .list {
+    justify-content: space-around;
+  }
+}

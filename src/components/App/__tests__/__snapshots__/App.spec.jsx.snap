@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Snapshot App render 1`] = `
+<ErrorBoundary>
+  <MovieSearchPage />
+  <Navigation />
+  <MoviesList
+    onClick={[Function]}
+  />
+  <Signature />
+</ErrorBoundary>
+`;

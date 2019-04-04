@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signature Snapshot renders 1`] = `
+<footer
+  className="footer"
+>
+  <p
+    className="name"
+  >
+    netflixroulette
+  </p>
+</footer>
+`;

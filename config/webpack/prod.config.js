@@ -5,9 +5,6 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const common = require('./common.config.js');
 
-const pathsToClean = [
-  'build',
-];
 const cleanOptions = {
   root: path.resolve(__dirname, '../../'),
   verbose: true,
@@ -20,7 +17,7 @@ module.exports = merge(common, {
     filename: 'js/[name].[contenthash].min.js',
   },
   plugins: [
-    new CleanWebpackPlugin(pathsToClean, cleanOptions),
+    new CleanWebpackPlugin(cleanOptions),
   ],
   optimization: {
     minimizer: [

@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetailsPage Snapshot renders 1`] = `
+<div
+  className="wrapper"
+  id="MovieDetailsPage"
+>
+  <section
+    className="section"
+  >
+    <Header />
+    <Button
+      className="searchButton"
+      id="searchDetailsButton"
+      isMain={true}
+      onClick={[MockFunction]}
+      text="SEARCH"
+      type="white"
+    />
+    <MovieDetails
+      description="A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time."
+      details="Oscar-winning Movies"
+      duration="154 min"
+      name="Pulp Fiction"
+      posterPath="test-file-stub"
+      year="1994"
+    />
+  </section>
+</div>
+`;
+
+exports[`MovieDetailsPage Snapshot renders isActive 1`] = `
+<div
+  className="wrapper"
+  id="MovieDetailsPage"
+>
+  <section
+    className="section"
+  >
+    <Header />
+    <Button
+      className="searchButton"
+      id="searchDetailsButton"
+      isMain={true}
+      onClick={[MockFunction]}
+      text="SEARCH"
+      type="white"
+    />
+    <MovieDetails
+      description="A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time."
+      details="Oscar-winning Movies"
+      duration="154 min"
+      name="Pulp Fiction"
+      posterPath="test-file-stub"
+      year="1994"
+    />
+  </section>
+</div>
+`;
