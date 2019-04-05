@@ -71,16 +71,12 @@ const films = [
 ];
 
 
-const MoviesList = ({ onClick }) => (
+const MoviesList = () => (
   <div className={styles.wrapper}>
     <section className={styles.section}>
-      <MovieInfo films={films} onClick={onClick} />
+      <MovieInfo />
     </section>
   </div>
 );
-
-MoviesList.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default MoviesList;

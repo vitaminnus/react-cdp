@@ -5,12 +5,12 @@ import defaultPoster from '../../assets/images/default-poster.jpg';
 
 const MovieDetails = (props) => {
   const {
-    name,
-    posterPath,
-    duration,
-    year,
-    details,
-    description,
+    title,
+    poster_path: posterPath,
+    runtime,
+    release_date: year,
+    tagline,
+    overview,
   } = props;
   const posterURL = posterPath || defaultPoster;
   return (
@@ -23,14 +23,16 @@ const MovieDetails = (props) => {
           }}
         />
         <div className={styles.description}>
-          <h2 className={styles.title}>{name}</h2>
-          <h4 className={styles.details}>{details}</h4>
+          <h2 className={styles.title}>{title}</h2>
+          <h4 className={styles.details}>{tagline}</h4>
           <div className={styles.statistics}>
             <p className={styles.year}>{year}</p>
-            <p className={styles.duration}>{duration}</p>
+            <p className={styles.duration}>
+              {runtime && `${runtime} min`}
+            </p>
           </div>
           <p className={styles.shortStory}>
-            {description}
+            {overview}
           </p>
         </div>
       </div>
@@ -39,15 +41,15 @@ const MovieDetails = (props) => {
 };
 
 MovieDetails.propTypes = {
-  name: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
-  details: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  posterPath: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  runtime: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
 };
 MovieDetails.defaultProps = {
-  posterPath: null,
+  poster_path: null,
 };
 
 export default MovieDetails;

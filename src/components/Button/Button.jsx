@@ -10,7 +10,12 @@ const Button = ({
   isMain,
   className,
 }) => (
-  <button id={id} className={`${styles.button} ${isMain ? styles.big : ''} ${styles[type]} ${className}`} type="button" onClick={onClick}>
+  <button
+    id={id}
+    className={`${styles.button} ${isMain ? styles.big : ''} ${styles[type]} ${className}`}
+    type="button"
+    onClick={onClick}
+  >
     {text}
   </button>
 );

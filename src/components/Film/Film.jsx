@@ -11,9 +11,8 @@ class Film extends React.Component {
   }
 
   componentDidMount() {
-    const { onClick } = this.props;
     const container = this.myRef.current;
-    container.addEventListener('click', onClick);
+    container.addEventListener('click', this.onClickHandler);
   }
 
   componentWillUnmount() {
@@ -22,12 +21,19 @@ class Film extends React.Component {
     container.removeEventListener('click', onClick);
   }
 
+  onClickHandler = () => {
+    const { onClick, film } = this.props;
+    onClick(film);
+  }
+
   render() {
     const {
-      name,
-      posterPath,
-      genres,
-      year,
+      film: {
+        title,
+        poster_path: posterPath,
+        genres,
+        release_date: releaseDate,
+      },
     } = this.props;
     const posterURL = posterPath || defaultPoster;
     return (
@@ -40,9 +46,9 @@ class Film extends React.Component {
             }}
           />
           <FilmInfo
-            name={name}
+            name={title}
             genres={genres}
-            year={year}
+            year={releaseDate}
           />
         </div>
       </div>
@@ -51,14 +57,15 @@ class Film extends React.Component {
 }
 
 Film.propTypes = {
-  name: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  posterPath: PropTypes.string,
+  film: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    posterPath: PropTypes.string,
+  })).isRequired,
   onClick: PropTypes.func.isRequired,
 };
-Film.defaultProps = {
-  posterPath: null,
-};
+
 
 export default Film;

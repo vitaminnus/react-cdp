@@ -5,35 +5,45 @@ import Header from '../../components/Header';
 import MovieDetails from '../../components/MovieDetails';
 import Button from '../../components/Button';
 import '../../assets/images/cover-image.jpg';
-import poster from '../../assets/images/poster.jpg';
 
-const fakeFilm = {
-  name: 'Pulp Fiction',
-  posterPath: poster,
-  duration: '154 min',
-  year: '1994',
-  details: 'Oscar-winning Movies',
-  description: "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
-};
+class MovieDetailsPage extends React.Component {
+  onClickHandler = () => {
+    const { showSearchPage } = this.props;
+    showSearchPage();
+  };
 
-const MovieDetailsPage = ({ onClick }) => (
-  <div id="MovieDetailsPage" className={styles.wrapper}>
-    <section className={styles.section}>
-      <Header />
-      <Button
-        id="searchDetailsButton"
-        type="white"
-        text="SEARCH"
-        isMain
-        className={styles.searchButton}
-        onClick={onClick}
-      />
-      <MovieDetails {...fakeFilm} />
-    </section>
-  </div>
-);
+  render() {
+    const { mainFilm, isShowSearchPage } = this.props;
+    if (isShowSearchPage) return null;
+    return (
+      <div id="MovieDetailsPage" className={styles.wrapper}>
+        <section className={styles.section}>
+          <Header />
+          <Button
+            id="searchDetailsButton"
+            type="white"
+            text="SEARCH"
+            isMain
+            className={styles.searchButton}
+            onClick={this.onClickHandler}
+          />
+          <MovieDetails {...mainFilm} />
+        </section>
+      </div>
+    );
+  }
+}
+
 MovieDetailsPage.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  mainFilm: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+    posterPath: PropTypes.string,
+  })).isRequired,
+  showSearchPage: PropTypes.func.isRequired,
+  isShowSearchPage: PropTypes.bool.isRequired,
 };
 
 export default MovieDetailsPage;

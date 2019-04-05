@@ -19,7 +19,7 @@ const FilmInfo = (props) => {
         </div>
         <div className={styles.info}>
           <div className={styles.genres}>
-            {genres.map(el => (
+            {genres && genres.map(el => (
               <span className={styles.genre} key={el}>{el}</span>
             ))}
           </div>

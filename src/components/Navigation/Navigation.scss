@@ -32,6 +32,7 @@
 }
 
 .link {
+  position: relative;
   height: 30px;
   color: $light-red;
   font-size: 14px;
@@ -46,6 +47,28 @@
   outline: none;
   z-index: 5;
   width: 100%;
+
+  &::before {
+    content: '';
+    top: 12px;
+    right: 0;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    transition: all ease 0.3s;
+  }
+}
+
+.up.link::before {
+  transform: rotate(-135deg);
+  top: 12px;
+}
+
+.down.link::before {
+  transform: rotate(45deg);
+  top: 12px;
 }
 
 .active {
