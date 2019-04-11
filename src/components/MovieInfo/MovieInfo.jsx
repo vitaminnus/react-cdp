@@ -5,8 +5,10 @@ import Film from '../Film';
 
 class MovieInfo extends React.Component {
   componentDidMount() {
-    const { fetchAllFilms } = this.props;
-    fetchAllFilms();
+    const { films, fetchAllFilms } = this.props;
+    if (!films.length) {
+      fetchAllFilms();
+    }
   }
 
   onClickHandler = (film) => {

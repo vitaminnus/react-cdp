@@ -69,6 +69,7 @@ const makeMainFilm = jest.fn();
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({ persistedStore: { allFilms: films } });
+const store2 = mockStore({ persistedStore: { allFilms: [] } });
 
 describe('MovieInfo Snapshot', () => {
   test('render', () => {
@@ -84,6 +85,14 @@ describe('MovieInfo Snapshot', () => {
   test('with store render', () => {
     const component = Testrenderer.create(
       <Provider store={store}>
+        <MovieInfoContainer />
+      </Provider>,
+    );
+    expect(component).toMatchSnapshot();
+  });
+  test('render without films in store', () => {
+    const component = Testrenderer.create(
+      <Provider store={store2}>
         <MovieInfoContainer />
       </Provider>,
     );

@@ -97,6 +97,12 @@ exports[`MovieInfo Snapshot render 1`] = `
 </div>
 `;
 
+exports[`MovieInfo Snapshot render without films in store 1`] = `
+<div
+  className="list"
+/>
+`;
+
 exports[`MovieInfo Snapshot with store render 1`] = `
 <div
   className="list"
