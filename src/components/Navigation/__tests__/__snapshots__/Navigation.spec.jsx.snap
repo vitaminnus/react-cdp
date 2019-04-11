@@ -10,7 +10,7 @@ exports[`Navigation Snapshot renders 1`] = `
     <h3
       className="foundTitle"
     >
-      9 movies found
+      5 movies found by "Terminator" title
     </h3>
     <nav
       className="nav-links"
@@ -21,13 +21,58 @@ exports[`Navigation Snapshot renders 1`] = `
         Sort by
       </h3>
       <button
-        className="link"
+        className="link up"
+        data-sorttype="release_date"
+        onClick={[Function]}
         type="button"
       >
         release date
       </button>
       <button
-        className="link"
+        className="link up"
+        data-sorttype="vote_count"
+        onClick={[Function]}
+        type="button"
+      >
+        rating
+      </button>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`Navigation Snapshot with store render 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="container"
+  >
+    <h3
+      className="foundTitle"
+    >
+      5 movies found by "terminator" title
+    </h3>
+    <nav
+      className="nav-links"
+    >
+      <h3
+        className="sortTitle"
+      >
+        Sort by
+      </h3>
+      <button
+        className="link up"
+        data-sorttype="release_date"
+        onClick={[Function]}
+        type="button"
+      >
+        release date
+      </button>
+      <button
+        className="link up"
+        data-sorttype="vote_count"
+        onClick={[Function]}
         type="button"
       >
         rating

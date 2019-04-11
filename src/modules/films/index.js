@@ -4,7 +4,6 @@ const initialState = {
   isFetchingFilms: false,
   isFetchedFilms: false,
   url: '',
-  lastPage: null,
   mainFilm: {},
   showSearchPage: true,
 };

@@ -35,15 +35,25 @@ class MovieDetailsPage extends React.Component {
 }
 
 MovieDetailsPage.propTypes = {
-  mainFilm: PropTypes.objectOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  mainFilm: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    releaseDate: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
     posterPath: PropTypes.string,
-  })).isRequired,
+  }),
   showSearchPage: PropTypes.func.isRequired,
   isShowSearchPage: PropTypes.bool.isRequired,
+};
+
+MovieDetailsPage.defaultProps = {
+  mainFilm: PropTypes.shape({
+    id: null,
+    name: null,
+    releaseDate: null,
+    genres: null,
+    posterPath: null,
+  }),
 };
 
 export default MovieDetailsPage;

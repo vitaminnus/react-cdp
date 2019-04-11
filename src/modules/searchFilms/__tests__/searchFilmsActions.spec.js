@@ -10,6 +10,11 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 const mockWord = 'word';
+const mockPayload = {
+  word: 'word',
+  navigationTitle: 'title',
+  searchType: 'type',
+};
 
 describe('searchFilms actions', () => {
   beforeEach(() => moxios.install());
@@ -28,45 +33,29 @@ describe('searchFilms actions', () => {
       done();
     });
   });
-  it('search film', (done) => {
-    moxios.stubRequest(/api.themoviedb.org/, {
-      status: 200,
-      response: getFilmsMock,
-    });
-
+  it('save type of search', (done) => {
     const expectedActions = [
-      { type: filmsActions.FETCH_FILMS_REQUEST },
-      {
-        type: filmsActions.FETCH_FILMS_SUCCESS,
-        payload: {
-          films: getFilmsMock.results,
-          page: 1,
-          url: `${filmsActions.urlBySearchFilms}&query=${mockWord}`,
-        },
-      },
+      { type: actions.SAVE_TYPE_OF_SEARCH, payload: 'type' },
     ];
 
     const store = mockStore({});
 
-    store.dispatch(actions.searchFilm(mockWord));
+    store.dispatch(actions.saveTypeOfSearch('type'));
     moxios.wait(() => {
       expect(store.getActions()).toEqual(expectedActions);
       done();
     });
   });
   it('search film', (done) => {
-    moxios.stubRequest(/api.themoviedb.org/, {
-      status: 200,
-      response: getFilmsMock,
-    });
-
     const expectedActions = [
-      { type: filmsActions.CLEAN_FILMS },
+      { type: actions.SAVE_SEARCHING_WORD, payload: 'word' },
+      { type: actions.SAVE_TYPE_OF_SEARCH, payload: 'title' },
+      { type: filmsActions.FETCH_FILMS_REQUEST },
     ];
 
     const store = mockStore({});
 
-    store.dispatch(actions.searchFilm(''));
+    store.dispatch(actions.searchFilm(mockPayload));
     moxios.wait(() => {
       expect(store.getActions()).toEqual(expectedActions);
       done();

@@ -5,10 +5,8 @@ import Film from '../Film';
 
 class MovieInfo extends React.Component {
   componentDidMount() {
-    const {
-      fetchFilmsPopular,
-    } = this.props;
-    fetchFilmsPopular();
+    const { fetchAllFilms } = this.props;
+    fetchAllFilms();
   }
 
   onClickHandler = (film) => {
@@ -34,7 +32,7 @@ class MovieInfo extends React.Component {
 
 MovieInfo.propTypes = {
   films: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchFilmsPopular: PropTypes.func.isRequired,
+  fetchAllFilms: PropTypes.func.isRequired,
   makeMainFilm: PropTypes.func.isRequired,
 };
 

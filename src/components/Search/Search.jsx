@@ -2,38 +2,65 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import styles from './Search.scss';
+import { ENTER_KEY } from '../../utils/consts';
 
 const searchItems = [
   {
     text: 'title',
-    type: 'red',
+    field: 'title',
   },
   {
     text: 'genre',
-    type: 'black',
+    field: 'genres',
   },
 ];
 
 class Search extends React.Component {
   state = {
-    searchedWord: '',
+    word: '',
+    searchBy: 'title',
+    navigationTitle: 'title',
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.onSubmitHandler);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.onSubmitHandler);
+  }
+
+  onSubmitHandler = (e) => {
+    if (e.keyCode === ENTER_KEY) {
+      this.onClickHandler();
+    }
   }
 
   onChangeHandler = (e) => {
     this.setState({
-      searchedWord: e.target.value,
+      word: e.target.value,
     });
   }
 
   onClickHandler = () => {
-    const { saveSearchingWord, searchFilm } = this.props;
-    const { searchedWord } = this.state;
-    saveSearchingWord(searchedWord);
-    searchFilm(searchedWord);
+    const { word, searchBy, navigationTitle } = this.state;
+    const { searchFilm } = this.props;
+    const searchWord = word.toLowerCase();
+    searchFilm({ word: searchWord, searchBy, navigationTitle });
+    this.setState({
+      word: '',
+    });
+  };
+
+  onSearchByHandler = (e) => {
+    this.setState({
+      searchBy: e.target.dataset.attr,
+      navigationTitle: searchItems.find(el => el.field === e.target.dataset.attr).text,
+    });
   }
 
   render() {
-    const { searchedWord } = this.props;
+    const { word, searchBy } = this.state;
     return (
       <div className={styles.searchWrapper}>
         <p className={styles.searchText}>find your movie</p>
@@ -41,7 +68,7 @@ class Search extends React.Component {
           type="text"
           className={styles.search}
           placeholder="search film"
-          value={searchedWord}
+          value={word}
           onChange={this.onChangeHandler}
         />
         <div className={styles.buttonsWrapper}>
@@ -51,8 +78,10 @@ class Search extends React.Component {
               searchItems.map(item => (
                 <Button
                   key={item.text}
-                  type={item.type}
+                  type={searchBy === item.field ? 'red' : 'black'}
                   text={item.text}
+                  dataAttr={item.field}
+                  onClick={this.onSearchByHandler}
                 />
               ))
             }
@@ -71,8 +100,6 @@ class Search extends React.Component {
 
 Search.propTypes = {
   searchFilm: PropTypes.func.isRequired,
-  searchedWord: PropTypes.string.isRequired,
-  saveSearchingWord: PropTypes.func.isRequired,
 };
 
 export default Search;

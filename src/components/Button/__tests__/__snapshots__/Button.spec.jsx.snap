@@ -3,6 +3,7 @@
 exports[`Button Snapshot renders 1`] = `
 <button
   className="button  black null"
+  data-attr={null}
   id={null}
   onClick={[Function]}
   type="button"
@@ -14,6 +15,7 @@ exports[`Button Snapshot renders 1`] = `
 exports[`Button blue Snapshot renders 1`] = `
 <button
   className="button  blue null"
+  data-attr={null}
   id={null}
   onClick={[Function]}
   type="button"
@@ -25,6 +27,7 @@ exports[`Button blue Snapshot renders 1`] = `
 exports[`Button blue Snapshot renders 2`] = `
 <button
   className="button big blue null"
+  data-attr={null}
   id={null}
   onClick={[Function]}
   type="button"

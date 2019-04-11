@@ -11,8 +11,10 @@ exports[`Search Snapshot render 1`] = `
   </p>
   <input
     className="search"
+    onChange={[Function]}
     placeholder="search film"
     type="text"
+    value=""
   />
   <div
     className="buttonsWrapper"
@@ -27,29 +29,91 @@ exports[`Search Snapshot render 1`] = `
       </h3>
       <Button
         className={null}
+        dataAttr="title"
         id={null}
         isMain={null}
-        onClick={null}
+        onClick={[Function]}
         text="title"
         type="red"
       />
       <Button
         className={null}
+        dataAttr="genres"
         id={null}
         isMain={null}
-        onClick={null}
+        onClick={[Function]}
         text="genre"
         type="black"
       />
     </div>
     <Button
       className={null}
+      dataAttr={null}
       id={null}
       isMain={true}
-      onClick={null}
+      onClick={[Function]}
       text="SEARCH"
       type="red"
     />
+  </div>
+</div>
+`;
+
+exports[`Search Snapshot with store render 1`] = `
+<div
+  className="searchWrapper"
+>
+  <p
+    className="searchText"
+  >
+    find your movie
+  </p>
+  <input
+    className="search"
+    onChange={[Function]}
+    placeholder="search film"
+    type="text"
+    value=""
+  />
+  <div
+    className="buttonsWrapper"
+  >
+    <div
+      className="btnWrapper"
+    >
+      <h3
+        className="searchTitle"
+      >
+        SEARCH BY
+      </h3>
+      <button
+        className="button  red null"
+        data-attr="title"
+        id={null}
+        onClick={[Function]}
+        type="button"
+      >
+        title
+      </button>
+      <button
+        className="button  black null"
+        data-attr="genres"
+        id={null}
+        onClick={[Function]}
+        type="button"
+      >
+        genre
+      </button>
+    </div>
+    <button
+      className="button big red null"
+      data-attr={null}
+      id={null}
+      onClick={[Function]}
+      type="button"
+    >
+      SEARCH
+    </button>
   </div>
 </div>
 `;

@@ -15,6 +15,16 @@ describe('SearchFilms Reducer', () => {
         searchedWord: mockWord,
       });
   });
+  it('save type of search', () => {
+    expect(reducer(initialState, {
+      type: actions.SAVE_TYPE_OF_SEARCH,
+      payload: mockWord,
+    }))
+      .toEqual({
+        ...initialState,
+        searchBy: mockWord,
+      });
+  });
   it('clean search field', () => {
     expect(reducer(initialState, actions.cleanSearchField()))
       .toEqual({

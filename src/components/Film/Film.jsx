@@ -2,28 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Film.scss';
 import FilmInfo from '../FilmInfo';
+import { ENTER_KEY } from '../../utils/consts';
 import defaultPoster from '../../assets/images/default-poster.jpg';
 
 class Film extends React.Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
-
-  componentDidMount() {
-    const container = this.myRef.current;
-    container.addEventListener('click', this.onClickHandler);
-  }
-
-  componentWillUnmount() {
-    const { onClick } = this.props;
-    const container = this.myRef.current;
-    container.removeEventListener('click', onClick);
-  }
-
   onClickHandler = () => {
     const { onClick, film } = this.props;
     onClick(film);
+  }
+
+  onKeyPressHandler = (e) => {
+    if (e.keyCode === ENTER_KEY) {
+      this.onClickHandler();
+    }
   }
 
   render() {
@@ -37,7 +28,13 @@ class Film extends React.Component {
     } = this.props;
     const posterURL = posterPath || defaultPoster;
     return (
-      <div id="film" className={styles.container} ref={this.myRef}>
+      <div
+        id="film"
+        className={styles.container}
+        onClick={this.onClickHandler}
+        onKeyPress={this.onKeyPressHandler}
+        role="presentation"
+      >
         <div className={styles.wrapper}>
           <div
             className={styles.poster}
@@ -57,14 +54,24 @@ class Film extends React.Component {
 }
 
 Film.propTypes = {
-  film: PropTypes.objectOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  film: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    releaseDate: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
     posterPath: PropTypes.string,
-  })).isRequired,
+  }),
   onClick: PropTypes.func.isRequired,
+};
+
+Film.defaultProps = {
+  film: PropTypes.shape({
+    id: null,
+    name: null,
+    releaseDate: null,
+    genres: null,
+    posterPath: null,
+  }),
 };
 
 

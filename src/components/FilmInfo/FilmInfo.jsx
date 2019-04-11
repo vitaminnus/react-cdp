@@ -14,7 +14,7 @@ const FilmInfo = (props) => {
         <div className={styles.titleWrapper}>
           <div className={styles.name}>{name}</div>
           <div className={styles.year}>
-            {year}
+            {year.split('-')[0]}
           </div>
         </div>
         <div className={styles.info}>

@@ -36,11 +36,11 @@ class Navigation extends React.Component {
   }
 
   render() {
-    const { films } = this.props;
+    const { films, searchingWord, typeOfSearch } = this.props;
     return (
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <h3 className={styles.foundTitle}>{`${films.length} movies found`}</h3>
+          <h3 className={styles.foundTitle}>{searchingWord && `${films.length} movies found by "${searchingWord}" ${typeOfSearch}`}</h3>
           <nav className={styles['nav-links']}>
             <h3 className={styles.sortTitle}>Sort by</h3>
             {Object.keys(links).map(keylink => (
@@ -64,6 +64,8 @@ class Navigation extends React.Component {
 Navigation.propTypes = {
   films: PropTypes.arrayOf(PropTypes.object).isRequired,
   sortFilms: PropTypes.func.isRequired,
+  searchingWord: PropTypes.string.isRequired,
+  typeOfSearch: PropTypes.string.isRequired,
 };
 
 

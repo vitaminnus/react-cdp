@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import Search from './Search';
 import {
   searchFilm,
-  saveSearchingWord,
   cleanSearchField,
 } from '../../modules/searchFilms/searchFilmsActions';
-import getSearchingWord from '../../modules/searchFilms/searchFilmsSelectors';
+import { getSearchingWord } from '../../modules/searchFilms/searchFilmsSelectors';
 
 
 const mapStateToProps = state => ({
@@ -14,7 +13,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   searchFilm,
-  saveSearchingWord,
   cleanSearchField,
 };
 

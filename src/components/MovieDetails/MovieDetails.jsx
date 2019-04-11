@@ -26,7 +26,7 @@ const MovieDetails = (props) => {
           <h2 className={styles.title}>{title}</h2>
           <h4 className={styles.details}>{tagline}</h4>
           <div className={styles.statistics}>
-            <p className={styles.year}>{year}</p>
+            <p className={styles.year}>{year.split('-')[0]}</p>
             <p className={styles.duration}>
               {runtime && `${runtime} min`}
             </p>
@@ -43,13 +43,14 @@ const MovieDetails = (props) => {
 MovieDetails.propTypes = {
   title: PropTypes.string.isRequired,
   release_date: PropTypes.string.isRequired,
-  runtime: PropTypes.string.isRequired,
+  runtime: PropTypes.number,
   tagline: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
   poster_path: PropTypes.string,
 };
 MovieDetails.defaultProps = {
   poster_path: null,
+  runtime: null,
 };
 
 export default MovieDetails;

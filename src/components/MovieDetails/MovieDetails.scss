@@ -53,6 +53,8 @@
 
       .shortStory {
         font-size: 18px;
+        overflow: hidden;
+        white-space: normal;
         color: white;
         text-align: left;
       }
@@ -79,6 +81,16 @@
 @media screen and (max-width: $tablet-size-screen) {
   .container {
     width: 100%;
+
+    .wrapper {
+      .description {
+        .shortStory {
+          max-height: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
   }
 }
 

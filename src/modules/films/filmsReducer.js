@@ -2,7 +2,6 @@ import {
   FETCH_FILMS_REQUEST,
   FETCH_FILMS_SUCCESS,
   FETCH_FILMS_ERROR,
-  CLEAN_FILMS,
   MAKE_MAIN_FILM,
   SHOW_SEARCH_PAGE,
   SORT_FILMS,
@@ -17,11 +16,8 @@ const filmsReducer = (state = initialState, action) => {
         ...state,
         isFetchingFilms: false,
         isFetchedFilms: true,
-        allFilms: action.payload.page === 1
-          ? action.payload.films
-          : state.allFilms.concat(action.payload.films),
+        allFilms: action.payload.films,
         url: action.payload.url,
-        lastPage: action.payload.page,
         errorFilms: '',
       };
     case FETCH_FILMS_REQUEST:
@@ -53,12 +49,6 @@ const filmsReducer = (state = initialState, action) => {
       return {
         ...state,
         showSearchPage: true,
-      };
-    case CLEAN_FILMS:
-      return {
-        ...state,
-        allFilms: [],
-        lastPage: -1,
       };
     default:
       return {

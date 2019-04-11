@@ -4,13 +4,11 @@ import { cleanSearchField } from '../searchFilms/searchFilmsActions';
 export const FETCH_FILMS_REQUEST = 'FETCH_FILMS_REQUEST';
 export const FETCH_FILMS_SUCCESS = 'FETCH_FILMS_SUCCESS';
 export const FETCH_FILMS_ERROR = 'FETCH_FILMS_ERROR';
-export const CLEAN_FILMS = 'CLEAN_FILMS';
 export const MAKE_MAIN_FILM = 'MAKE_MAIN_FILM';
 export const SHOW_SEARCH_PAGE = 'SHOW_SEARCH_PAGE';
 export const SORT_FILMS = 'SORT_FILMS';
 
-export const urlPopularFilms = 'https://reactjs-cdp.herokuapp.com/movies';
-
+export const urlFilms = 'https://reactjs-cdp.herokuapp.com/movies';
 
 export const receiveFilmsSuccess = payload => ({
   type: FETCH_FILMS_SUCCESS,
@@ -24,10 +22,6 @@ export const receiveFilmsRequest = () => ({
 export const receiveFilmsError = payload => ({
   type: FETCH_FILMS_ERROR,
   payload,
-});
-
-export const cleanFilms = () => ({
-  type: CLEAN_FILMS,
 });
 
 export const makeMainFilm = payload => ({
@@ -44,47 +38,26 @@ export const sortFilms = payload => ({
   payload,
 });
 
-export function fetchFilms(url, page = 0) {
+export function fetchFilms(url) {
   return (dispatch) => {
     dispatch(receiveFilmsRequest());
-    axios.get(`${url}?offset=${page}`)
+    axios.get(url)
       .then((response) => {
-        dispatch(receiveFilmsSuccess({ films: response.data.data, url, page }));
+        dispatch(receiveFilmsSuccess({ films: response.data.data, url }));
       })
       .catch(error => dispatch(receiveFilmsError(error.message)));
   };
 }
 
-export function fetchFilmsPopular() {
+export function fetchAllFilms() {
   return (dispatch) => {
     dispatch(cleanSearchField());
-    dispatch(fetchFilms(urlPopularFilms));
+    dispatch(fetchFilms(urlFilms));
   };
 }
 
-export function fetchFilmsTopRated() {
+export function fetchFilmsBySearch(word, searchBy) {
   return (dispatch) => {
-    dispatch(cleanSearchField());
-    dispatch(fetchFilms(urlTopRatedFilms));
-  };
-}
-
-export function fetchFilmsComingSoon() {
-  return (dispatch) => {
-    dispatch(cleanSearchField());
-    dispatch(fetchFilms(urlComingSoonFilms));
-  };
-}
-
-export function fetchFilmsByGenre(genreID) {
-  return (dispatch) => {
-    dispatch(cleanSearchField());
-    dispatch(fetchFilms(`${urlByGenreFilms}&with_genres=${genreID}`));
-  };
-}
-
-export function fetchFilmsBySearch(word) {
-  return (dispatch) => {
-    dispatch(fetchFilms(`${urlBySearchFilms}&query=${word}`));
+    dispatch(fetchFilms(`${urlFilms}?search=${word}&searchBy=${searchBy}`));
   };
 }

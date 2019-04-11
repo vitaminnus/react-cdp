@@ -9,11 +9,13 @@ const Button = ({
   onClick,
   isMain,
   className,
+  dataAttr,
 }) => (
   <button
     id={id}
     className={`${styles.button} ${isMain ? styles.big : ''} ${styles[type]} ${className}`}
     type="button"
+    data-attr={dataAttr}
     onClick={onClick}
   >
     {text}
@@ -27,11 +29,13 @@ Button.propTypes = {
   isMain: PropTypes.bool,
   className: PropTypes.string,
   id: PropTypes.string,
+  dataAttr: PropTypes.string,
 };
 Button.defaultProps = {
   onClick: null,
   isMain: null,
   className: null,
   id: null,
+  dataAttr: null,
 };
 export default Button;

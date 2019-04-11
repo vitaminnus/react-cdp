@@ -5,16 +5,401 @@ exports[`MovieInfo Snapshot render 1`] = `
   className="list"
 >
   <Film
-    genres={
-      Array [
-        "Drama",
-        "Comedy",
-      ]
+    film={
+      Object {
+        "genres": Array [
+          "Drama",
+          "Comedy",
+        ],
+        "id": 353463654,
+        "overview": "Super movie sdfsfs",
+        "poster_path": "../../assets/images/poster.jpg",
+        "release_date": "1984-12-03",
+        "runtime": 150,
+        "tagline": "Super movie",
+        "title": "Captain Marvel",
+      }
     }
-    name="Captain Marvel"
-    onClick={[MockFunction]}
-    posterPath="../../assets/images/poster.jpg"
-    year="1984"
+    onClick={[Function]}
   />
+  <Film
+    film={
+      Object {
+        "genres": Array [
+          "Drama",
+          "Comedy",
+        ],
+        "id": 4676898,
+        "overview": "Super movie sdfsfs",
+        "poster_path": "../../assets/images/poster.jpg",
+        "release_date": "1984-12-03",
+        "runtime": 150,
+        "tagline": "Super movie",
+        "title": "Captain Marvel",
+      }
+    }
+    onClick={[Function]}
+  />
+  <Film
+    film={
+      Object {
+        "genres": Array [
+          "Drama",
+          "Comedy",
+        ],
+        "id": 23141515,
+        "overview": "Super movie sdfsfs",
+        "poster_path": "../../assets/images/poster.jpg",
+        "release_date": "1984-12-03",
+        "runtime": 150,
+        "tagline": "Super movie",
+        "title": "Captain Marvel",
+      }
+    }
+    onClick={[Function]}
+  />
+  <Film
+    film={
+      Object {
+        "genres": Array [
+          "Drama",
+          "Comedy",
+        ],
+        "id": 9068756,
+        "overview": "Super movie sdfsfs",
+        "poster_path": "../../assets/images/poster.jpg",
+        "release_date": "1984-12-03",
+        "runtime": 150,
+        "tagline": "Super movie",
+        "title": "Captain Marvel",
+      }
+    }
+    onClick={[Function]}
+  />
+  <Film
+    film={
+      Object {
+        "genres": Array [
+          "Drama",
+          "Comedy",
+        ],
+        "id": 133453456,
+        "overview": "Super movie sdfsfs",
+        "poster_path": "../../assets/images/poster.jpg",
+        "release_date": "1984-12-03",
+        "runtime": 150,
+        "tagline": "Super movie",
+        "title": "Captain Marvel",
+      }
+    }
+    onClick={[Function]}
+  />
+</div>
+`;
+
+exports[`MovieInfo Snapshot with store render 1`] = `
+<div
+  className="list"
+>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(../../assets/images/poster.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Captain Marvel
+            </div>
+            <div
+              className="year"
+            >
+              1984
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Drama
+              </span>
+              <span
+                className="genre"
+              >
+                Comedy
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(../../assets/images/poster.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Captain Marvel
+            </div>
+            <div
+              className="year"
+            >
+              1984
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Drama
+              </span>
+              <span
+                className="genre"
+              >
+                Comedy
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(../../assets/images/poster.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Captain Marvel
+            </div>
+            <div
+              className="year"
+            >
+              1984
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Drama
+              </span>
+              <span
+                className="genre"
+              >
+                Comedy
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(../../assets/images/poster.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Captain Marvel
+            </div>
+            <div
+              className="year"
+            >
+              1984
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Drama
+              </span>
+              <span
+                className="genre"
+              >
+                Comedy
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(../../assets/images/poster.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Captain Marvel
+            </div>
+            <div
+              className="year"
+            >
+              1984
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Drama
+              </span>
+              <span
+                className="genre"
+              >
+                Comedy
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

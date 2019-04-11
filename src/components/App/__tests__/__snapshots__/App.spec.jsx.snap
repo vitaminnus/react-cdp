@@ -2,11 +2,10 @@
 
 exports[`App Snapshot App render 1`] = `
 <ErrorBoundary>
-  <MovieSearchPage />
-  <Navigation />
-  <MoviesList
-    onClick={[Function]}
-  />
+  <Connect(MovieSearchPage) />
+  <Connect(MovieDetailsPage) />
+  <Connect(Navigation) />
+  <MoviesList />
   <Signature />
 </ErrorBoundary>
 `;
