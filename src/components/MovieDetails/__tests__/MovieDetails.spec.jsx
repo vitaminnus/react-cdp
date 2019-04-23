@@ -4,21 +4,29 @@ import MovieDetails from '../index';
 
 const shallow = new ShallowRenderer();
 const film = {
-  name: 'Captain Marvel',
-  genres: ['Drama', 'Comedy'],
-  year: '1984',
-  posterPath: '../../assets/images/poster.jpg',
-  duration: '152 m',
-  details: 'lorem lorem',
-  description: 'lorem ipsum',
+  title: 'Captain Marvel',
+  poster_path: '../../assets/images/poster.jpg',
+  runtime: 152,
+  release_date: '2020-12-13',
+  tagline: 'lorem lorem',
+  overview: 'lorem ipsum',
 };
 const film2 = {
-  name: 'Captain Marvel',
+  title: 'Captain Marvel',
   genres: ['Drama', 'Comedy'],
-  year: '1984',
-  duration: '152 m',
-  details: 'lorem lorem',
-  description: 'lorem ipsum',
+  release_date: '2020-12-13',
+  runtime: 152,
+  tagline: 'lorem lorem',
+  overview: 'lorem ipsum',
+};
+
+const film3 = {
+  title: 'Captain Marvel',
+  genres: ['Drama', 'Comedy'],
+  release_date: '2020-12-13',
+  poster_path: '../../assets/images/poster.jpg',
+  tagline: 'lorem lorem',
+  overview: 'lorem ipsum',
 };
 
 describe('MoviDetails Snapshot', () => {
@@ -31,6 +39,12 @@ describe('MoviDetails Snapshot', () => {
   test('render without PosterPath', () => {
     const component = shallow.render(
       <MovieDetails {...film2} />,
+    );
+    expect(component).toMatchSnapshot();
+  });
+  test('render without runtime', () => {
+    const component = shallow.render(
+      <MovieDetails {...film3} />,
     );
     expect(component).toMatchSnapshot();
   });

@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieSearchPage Snapshot no render if it is not needed 1`] = `
+<div
+  className="wrapper"
+  id="MovieSearchPage"
+>
+  <section
+    className="section"
+  >
+    <Connect(Header) />
+    <Connect(Search) />
+  </section>
+</div>
+`;
+
+exports[`MovieSearchPage Snapshot renders 1`] = `null`;
+
+exports[`MovieSearchPage Snapshot with store render 1`] = `
+<div
+  className="wrapper"
+  id="MovieSearchPage"
+>
+  <section
+    className="section"
+  >
+    <header
+      className="header"
+    >
+      <p
+        className="logo"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="presentation"
+      >
+        netflixroulette
+      </p>
+    </header>
+    <div
+      className="searchWrapper"
+    >
+      <p
+        className="searchText"
+      >
+        find your movie
+      </p>
+      <input
+        className="search"
+        onChange={[Function]}
+        placeholder="search film"
+        type="text"
+        value=""
+      />
+      <div
+        className="buttonsWrapper"
+      >
+        <div
+          className="btnWrapper"
+        >
+          <h3
+            className="searchTitle"
+          >
+            SEARCH BY
+          </h3>
+          <button
+            className="button  red null"
+            data-attr="title"
+            id={null}
+            onClick={[Function]}
+            type="button"
+          >
+            title
+          </button>
+          <button
+            className="button  black null"
+            data-attr="genres"
+            id={null}
+            onClick={[Function]}
+            type="button"
+          >
+            genre
+          </button>
+        </div>
+        <button
+          className="button big red null"
+          data-attr={null}
+          id={null}
+          onClick={[Function]}
+          type="button"
+        >
+          SEARCH
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;

@@ -1,3 +1,3 @@
-import MovieSearchPage from './MovieSearchPage';
+import MovieSearchPage from './MovieSearchPageContainer';
 
 export default MovieSearchPage;

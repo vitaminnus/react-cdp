@@ -55,15 +55,3 @@
   justify-content: center;
   align-items: center;
 }
-
-@media screen and (max-width: $tablet-size-screen) {
-  .search {
-    width: 170px;
-  }
-}
-
-@media screen and (max-width: $phone-size-screen) {
-  .search {
-    width: 120px;
-  }
-}

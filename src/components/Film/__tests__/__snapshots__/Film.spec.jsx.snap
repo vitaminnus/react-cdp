@@ -4,6 +4,9 @@ exports[`Film Snapshot renders 1`] = `
 <div
   className="container"
   id="film"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="presentation"
 >
   <div
     className="wrapper"
@@ -12,7 +15,7 @@ exports[`Film Snapshot renders 1`] = `
       className="poster"
       style={
         Object {
-          "backgroundImage": "url(test-file-stub)",
+          "backgroundImage": "url(../../assets/images/poster.jpg)",
         }
       }
     />
@@ -24,7 +27,7 @@ exports[`Film Snapshot renders 1`] = `
         ]
       }
       name="Captain Marvel"
-      year="1984"
+      year="1984-12-03"
     />
   </div>
 </div>
@@ -34,6 +37,9 @@ exports[`Film Snapshot renders without PosterPath 1`] = `
 <div
   className="container"
   id="film"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="presentation"
 >
   <div
     className="wrapper"
@@ -54,7 +60,7 @@ exports[`Film Snapshot renders without PosterPath 1`] = `
         ]
       }
       name="Captain Marvel"
-      year="1984"
+      year="1984-05-12"
     />
   </div>
 </div>

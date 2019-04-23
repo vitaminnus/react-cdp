@@ -1,25 +1,31 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import TestRenderer from 'react-test-renderer';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Film from '../index';
 
 const renderer = new ShallowRenderer();
+Enzyme.configure({ adapter: new Adapter() });
 
 const onClick = jest.fn();
 
 const film = {
-  id: '13456',
-  name: 'Captain Marvel',
-  poster_path: '../../assets/images/poster.jpg',
-  genres: ['Drama', 'Comedy'],
-  year: '1984',
+  film: {
+    id: 13456,
+    title: 'Captain Marvel',
+    poster_path: '../../assets/images/poster.jpg',
+    genres: ['Drama', 'Comedy'],
+    release_date: '1984-12-03',
+  },
 };
 
 const film2 = {
-  id: '13456',
-  name: 'Captain Marvel',
-  genres: ['Drama', 'Comedy'],
-  year: '1984',
+  film: {
+    id: 13456,
+    title: 'Captain Marvel',
+    genres: ['Drama', 'Comedy'],
+    release_date: '1984-05-12',
+  },
 };
 
 describe('Film Snapshot', () => {
@@ -37,22 +43,41 @@ describe('Film Snapshot', () => {
   });
 });
 
-describe('Film lifecycle method componentWillUnmount should have been called', () => {
-  test('lifecycle method should have been called', () => {
-    const component = TestRenderer.create(
+describe('Film clickHandler should works', () => {
+  it('click to the film should call clickHandler', () => {
+    const wrapper = shallow(
       <Film {...film} onClick={onClick} />,
-      {
-        createNodeMock: (element) => {
-          if (element.props.className === 'container') {
-            return {
-              addEventListener: () => {},
-              removeEventListener: () => {},
-            };
-          }
-          return null;
-        },
-      },
     );
-    component.unmount();
+    const instance = wrapper.instance();
+    const spy = jest.spyOn(instance, 'onClickHandler');
+    wrapper.instance().forceUpdate();
+    wrapper.find('.container').prop('onClick')();
+    expect(spy).toHaveBeenCalled();
+  });
+  it('keyPress to the enter button on film should call onKeyPressHandler', () => {
+    const wrapper = shallow(
+      <Film {...film} onClick={onClick} />,
+    );
+    const e = {
+      keyCode: 13,
+    };
+    const instance = wrapper.instance();
+    const spy = jest.spyOn(instance, 'onKeyPressHandler');
+    wrapper.instance().forceUpdate();
+    wrapper.find('.container').prop('onKeyPress')(e);
+    expect(spy).toHaveBeenCalled();
+  });
+  it("keyPress not to the enter button on film shouldn't call onKeyPressHandler", () => {
+    const wrapper = shallow(
+      <Film {...film} onClick={onClick} />,
+    );
+    const e = {
+      keyCode: 0,
+    };
+    const instance = wrapper.instance();
+    const spy = jest.spyOn(instance, 'onKeyPressHandler');
+    wrapper.instance().forceUpdate();
+    wrapper.find('.container').prop('onKeyPress')(e);
+    expect(spy).toHaveBeenCalled();
   });
 });

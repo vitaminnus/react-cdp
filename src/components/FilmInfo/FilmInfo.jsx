@@ -14,12 +14,12 @@ const FilmInfo = (props) => {
         <div className={styles.titleWrapper}>
           <div className={styles.name}>{name}</div>
           <div className={styles.year}>
-            {year}
+            {year.split('-')[0]}
           </div>
         </div>
         <div className={styles.info}>
           <div className={styles.genres}>
-            {genres.map(el => (
+            {genres && genres.map(el => (
               <span className={styles.genre} key={el}>{el}</span>
             ))}
           </div>

@@ -2,36 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Film.scss';
 import FilmInfo from '../FilmInfo';
+import { ENTER_KEY } from '../../utils/consts';
 import defaultPoster from '../../assets/images/default-poster.jpg';
 
 class Film extends React.Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
+  onClickHandler = () => {
+    const { onClick, film } = this.props;
+    onClick(film);
   }
 
-  componentDidMount() {
-    const { onClick } = this.props;
-    const container = this.myRef.current;
-    container.addEventListener('click', onClick);
-  }
-
-  componentWillUnmount() {
-    const { onClick } = this.props;
-    const container = this.myRef.current;
-    container.removeEventListener('click', onClick);
+  onKeyPressHandler = (e) => {
+    if (e.keyCode === ENTER_KEY) {
+      this.onClickHandler();
+    }
   }
 
   render() {
     const {
-      name,
-      posterPath,
-      genres,
-      year,
+      film: {
+        title,
+        poster_path: posterPath,
+        genres,
+        release_date: releaseDate,
+      },
     } = this.props;
     const posterURL = posterPath || defaultPoster;
     return (
-      <div id="film" className={styles.container} ref={this.myRef}>
+      <div
+        id="film"
+        className={styles.container}
+        onClick={this.onClickHandler}
+        onKeyPress={this.onKeyPressHandler}
+        role="presentation"
+      >
         <div className={styles.wrapper}>
           <div
             className={styles.poster}
@@ -40,9 +43,9 @@ class Film extends React.Component {
             }}
           />
           <FilmInfo
-            name={name}
+            name={title}
             genres={genres}
-            year={year}
+            year={releaseDate}
           />
         </div>
       </div>
@@ -51,14 +54,25 @@ class Film extends React.Component {
 }
 
 Film.propTypes = {
-  name: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-  posterPath: PropTypes.string,
+  film: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    releaseDate: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    posterPath: PropTypes.string,
+  }),
   onClick: PropTypes.func.isRequired,
 };
+
 Film.defaultProps = {
-  posterPath: null,
+  film: PropTypes.shape({
+    id: null,
+    name: null,
+    releaseDate: null,
+    genres: null,
+    posterPath: null,
+  }),
 };
+
 
 export default Film;

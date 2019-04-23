@@ -1,3 +1,3 @@
-import MovieDetailsPage from './MovieDetailsPage';
+import MovieDetailsPage from './MovieDetailsPageContainer';
 
 export default MovieDetailsPage;

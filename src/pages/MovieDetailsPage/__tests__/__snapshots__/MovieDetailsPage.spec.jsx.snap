@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MovieDetailsPage Snapshot no render if it is not needed 1`] = `null`;
+
 exports[`MovieDetailsPage Snapshot renders 1`] = `
 <div
   className="wrapper"
@@ -8,28 +10,36 @@ exports[`MovieDetailsPage Snapshot renders 1`] = `
   <section
     className="section"
   >
-    <Header />
+    <Connect(Header) />
     <Button
       className="searchButton"
+      dataAttr={null}
       id="searchDetailsButton"
       isMain={true}
-      onClick={[MockFunction]}
+      onClick={[Function]}
       text="SEARCH"
       type="white"
     />
     <MovieDetails
-      description="A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time."
-      details="Oscar-winning Movies"
-      duration="154 min"
-      name="Pulp Fiction"
-      posterPath="test-file-stub"
-      year="1994"
+      genres={
+        Array [
+          "Drama",
+          "Comedy",
+        ]
+      }
+      id={13456}
+      overview="Super movie sdfsfs"
+      poster_path="../../assets/images/poster.jpg"
+      release_date="1984-12-03"
+      runtime={150}
+      tagline="Super movie"
+      title="Captain Marvel"
     />
   </section>
 </div>
 `;
 
-exports[`MovieDetailsPage Snapshot renders isActive 1`] = `
+exports[`MovieDetailsPage Snapshot with store render 1`] = `
 <div
   className="wrapper"
   id="MovieDetailsPage"
@@ -37,23 +47,76 @@ exports[`MovieDetailsPage Snapshot renders isActive 1`] = `
   <section
     className="section"
   >
-    <Header />
-    <Button
-      className="searchButton"
+    <header
+      className="header"
+    >
+      <p
+        className="logo"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="presentation"
+      >
+        netflixroulette
+      </p>
+    </header>
+    <button
+      className="button big white searchButton"
+      data-attr={null}
       id="searchDetailsButton"
-      isMain={true}
-      onClick={[MockFunction]}
-      text="SEARCH"
-      type="white"
-    />
-    <MovieDetails
-      description="A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time."
-      details="Oscar-winning Movies"
-      duration="154 min"
-      name="Pulp Fiction"
-      posterPath="test-file-stub"
-      year="1994"
-    />
+      onClick={[Function]}
+      type="button"
+    >
+      SEARCH
+    </button>
+    <div
+      className="container"
+    >
+      <div
+        className="wrapper"
+      >
+        <div
+          className="poster"
+          style={
+            Object {
+              "backgroundImage": "url(../../assets/images/poster.jpg)",
+            }
+          }
+        />
+        <div
+          className="description"
+        >
+          <h2
+            className="title"
+          >
+            Captain Marvel
+          </h2>
+          <h4
+            className="details"
+          >
+            Super movie
+          </h4>
+          <div
+            className="statistics"
+          >
+            <p
+              className="year"
+            >
+              1984
+            </p>
+            <p
+              className="duration"
+            >
+              150 min
+            </p>
+          </div>
+          <p
+            className="shortStory"
+          >
+            Super movie sdfsfs
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
 `;
