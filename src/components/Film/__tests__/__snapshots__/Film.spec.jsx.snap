@@ -1,39 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Film Snapshot renders 1`] = `
-<div
-  className="container"
-  id="film"
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  role="presentation"
->
-  <div
-    className="wrapper"
-  >
-    <div
-      className="poster"
-      style={
-        Object {
-          "backgroundImage": "url(../../assets/images/poster.jpg)",
-        }
-      }
-    />
-    <FilmInfo
-      genres={
-        Array [
-          "Drama",
-          "Comedy",
-        ]
-      }
-      name="Captain Marvel"
-      year="1984-12-03"
-    />
-  </div>
-</div>
-`;
-
-exports[`Film Snapshot renders without PosterPath 1`] = `
+exports[`Film Snapshots render component without PosterPath 1`] = `
 <div
   className="container"
   id="film"
@@ -61,6 +28,39 @@ exports[`Film Snapshot renders without PosterPath 1`] = `
       }
       name="Captain Marvel"
       year="1984-05-12"
+    />
+  </div>
+</div>
+`;
+
+exports[`Film Snapshots render only component 1`] = `
+<div
+  className="container"
+  id="film"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="presentation"
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="poster"
+      style={
+        Object {
+          "backgroundImage": "url(../../assets/images/poster.jpg)",
+        }
+      }
+    />
+    <FilmInfo
+      genres={
+        Array [
+          "Drama",
+          "Comedy",
+        ]
+      }
+      name="Captain Marvel"
+      year="1984-12-03"
     />
   </div>
 </div>

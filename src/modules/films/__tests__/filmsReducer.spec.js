@@ -46,14 +46,6 @@ describe('Films Reducers', () => {
         isFetchedFilms: false,
       });
   });
-  it('make main film', () => {
-    expect(reducer(initialState, actions.makeMainFilm(getFilmMock)))
-      .toEqual({
-        ...initialState,
-        mainFilm: getFilmMock,
-        showSearchPage: false,
-      });
-  });
   it('sort films', () => {
     expect(reducer(initStateForSort, actions.sortFilms(mockPayloadForSort)))
       .toEqual({
@@ -61,13 +53,6 @@ describe('Films Reducers', () => {
         allFilms: [].concat(
           sort(getFilmsMock.data, mockPayloadForSort.direction, mockPayloadForSort.key),
         ),
-      });
-  });
-  it('show search page', () => {
-    expect(reducer(initialState, actions.showSearchPage()))
-      .toEqual({
-        ...initialState,
-        showSearchPage: true,
       });
   });
   it('fetch films error', () => {

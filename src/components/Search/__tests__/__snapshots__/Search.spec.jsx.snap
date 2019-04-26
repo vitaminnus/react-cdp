@@ -60,60 +60,26 @@ exports[`Search Snapshot render 1`] = `
 `;
 
 exports[`Search Snapshot with store render 1`] = `
-<div
-  className="searchWrapper"
+<Context.Provider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "storeState": Object {
+        "notPersistedStore": Object {
+          "searchBy": "title",
+          "searchedWord": "word",
+        },
+      },
+    }
+  }
 >
-  <p
-    className="searchText"
-  >
-    find your movie
-  </p>
-  <input
-    className="search"
-    onChange={[Function]}
-    placeholder="search film"
-    type="text"
-    value=""
-  />
-  <div
-    className="buttonsWrapper"
-  >
-    <div
-      className="btnWrapper"
-    >
-      <h3
-        className="searchTitle"
-      >
-        SEARCH BY
-      </h3>
-      <button
-        className="button  red null"
-        data-attr="title"
-        id={null}
-        onClick={[Function]}
-        type="button"
-      >
-        title
-      </button>
-      <button
-        className="button  black null"
-        data-attr="genres"
-        id={null}
-        onClick={[Function]}
-        type="button"
-      >
-        genre
-      </button>
-    </div>
-    <button
-      className="button big red null"
-      data-attr={null}
-      id={null}
-      onClick={[Function]}
-      type="button"
-    >
-      SEARCH
-    </button>
-  </div>
-</div>
+  <withRouter(Connect(Search)) />
+</Context.Provider>
 `;

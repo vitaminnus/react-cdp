@@ -23,7 +23,14 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    const {
+      location,
+      match,
+      history,
+      fetchFilmByRoute,
+    } = this.props;
     document.addEventListener('keypress', this.onSubmitHandler);
+    fetchFilmByRoute(location, match, history);
   }
 
   componentWillUnmount() {
@@ -44,12 +51,13 @@ class Search extends React.Component {
 
   onClickHandler = () => {
     const { word, searchBy, navigationTitle } = this.state;
-    const { searchFilm } = this.props;
+    const { searchFilm, history } = this.props;
     const searchWord = word.toLowerCase();
-    searchFilm({ word: searchWord, searchBy, navigationTitle });
     this.setState({
       word: '',
     });
+    searchFilm({ word: searchWord, searchBy, navigationTitle });
+    history.push(`/search?q=${searchWord}&t=${searchBy}`);
   };
 
   onSearchByHandler = (e) => {
@@ -100,6 +108,10 @@ class Search extends React.Component {
 
 Search.propTypes = {
   searchFilm: PropTypes.func.isRequired,
+  fetchFilmByRoute: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
+  match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default Search;

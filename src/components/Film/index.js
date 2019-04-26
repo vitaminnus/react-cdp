@@ -1,3 +1,3 @@
-import Film from './Film';
+import Film from './FilmContainer';
 
 export default Film;

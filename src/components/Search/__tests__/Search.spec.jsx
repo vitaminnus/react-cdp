@@ -31,7 +31,7 @@ describe('Search Snapshot', () => {
     expect(component).toMatchSnapshot();
   });
   test('with store render', () => {
-    const component = Testrenderer.create(
+    const component = renderer.render(
       <Provider store={store}>
         <SearchContainer />
       </Provider>,
@@ -43,8 +43,9 @@ describe('Search Snapshot', () => {
 describe('Search clickHandler should work', () => {
   it('click to the search button should clean search field', () => {
     const wrapper = shallow(
-      <Search searchFilm={searchFilm} />,
+      <Search />,
     );
+    wrapper.instance().forceUpdate();
     wrapper.find('[text="SEARCH"]').prop('onClick')();
     expect(wrapper.state().word).toEqual('');
   });

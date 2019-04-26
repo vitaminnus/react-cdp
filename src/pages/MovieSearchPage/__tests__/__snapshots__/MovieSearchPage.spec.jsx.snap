@@ -9,7 +9,7 @@ exports[`MovieSearchPage Snapshot no render if it is not needed 1`] = `
     className="section"
   >
     <Connect(Header) />
-    <Connect(Search) />
+    <withRouter(Connect(Search)) />
   </section>
 </div>
 `;

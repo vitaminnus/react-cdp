@@ -4,7 +4,7 @@ exports[`MovieInfo Snapshot render 1`] = `
 <div
   className="list"
 >
-  <Film
+  <withRouter(Film)
     film={
       Object {
         "genres": Array [
@@ -20,9 +20,8 @@ exports[`MovieInfo Snapshot render 1`] = `
         "title": "Captain Marvel",
       }
     }
-    onClick={[Function]}
   />
-  <Film
+  <withRouter(Film)
     film={
       Object {
         "genres": Array [
@@ -38,9 +37,8 @@ exports[`MovieInfo Snapshot render 1`] = `
         "title": "Captain Marvel",
       }
     }
-    onClick={[Function]}
   />
-  <Film
+  <withRouter(Film)
     film={
       Object {
         "genres": Array [
@@ -56,9 +54,8 @@ exports[`MovieInfo Snapshot render 1`] = `
         "title": "Captain Marvel",
       }
     }
-    onClick={[Function]}
   />
-  <Film
+  <withRouter(Film)
     film={
       Object {
         "genres": Array [
@@ -74,9 +71,8 @@ exports[`MovieInfo Snapshot render 1`] = `
         "title": "Captain Marvel",
       }
     }
-    onClick={[Function]}
   />
-  <Film
+  <withRouter(Film)
     film={
       Object {
         "genres": Array [
@@ -92,7 +88,6 @@ exports[`MovieInfo Snapshot render 1`] = `
         "title": "Captain Marvel",
       }
     }
-    onClick={[Function]}
   />
 </div>
 `;

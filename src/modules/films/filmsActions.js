@@ -4,8 +4,6 @@ import { cleanSearchField } from '../searchFilms/searchFilmsActions';
 export const FETCH_FILMS_REQUEST = 'FETCH_FILMS_REQUEST';
 export const FETCH_FILMS_SUCCESS = 'FETCH_FILMS_SUCCESS';
 export const FETCH_FILMS_ERROR = 'FETCH_FILMS_ERROR';
-export const MAKE_MAIN_FILM = 'MAKE_MAIN_FILM';
-export const SHOW_SEARCH_PAGE = 'SHOW_SEARCH_PAGE';
 export const SORT_FILMS = 'SORT_FILMS';
 
 export const urlFilms = 'https://reactjs-cdp.herokuapp.com/movies';
@@ -22,15 +20,6 @@ export const receiveFilmsRequest = () => ({
 export const receiveFilmsError = payload => ({
   type: FETCH_FILMS_ERROR,
   payload,
-});
-
-export const makeMainFilm = payload => ({
-  type: MAKE_MAIN_FILM,
-  payload,
-});
-
-export const showSearchPage = () => ({
-  type: SHOW_SEARCH_PAGE,
 });
 
 export const sortFilms = payload => ({

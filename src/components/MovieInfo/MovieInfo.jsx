@@ -4,17 +4,15 @@ import styles from './MovieInfo.scss';
 import Film from '../Film';
 
 class MovieInfo extends React.Component {
-  componentDidMount() {
-    const { films, fetchAllFilms } = this.props;
-    if (!films.length) {
-      fetchAllFilms();
-    }
-  }
-
-  onClickHandler = (film) => {
-    const { makeMainFilm } = this.props;
-    makeMainFilm(film);
-  }
+  // componentDidMount() {
+  //   const {
+  //     match,
+  //     location,
+  //     history, 
+  //     fetchFilmByRoute,
+  //   } = this.props;
+  //   fetchFilmByRoute(location, match, history);
+  // }
 
   render() {
     const { films } = this.props;
@@ -24,7 +22,6 @@ class MovieInfo extends React.Component {
           <Film
             key={film.id}
             film={film}
-            onClick={this.onClickHandler}
           />
         ))}
       </div>
@@ -34,8 +31,6 @@ class MovieInfo extends React.Component {
 
 MovieInfo.propTypes = {
   films: PropTypes.arrayOf(PropTypes.object).isRequired,
-  fetchAllFilms: PropTypes.func.isRequired,
-  makeMainFilm: PropTypes.func.isRequired,
 };
 
 export default MovieInfo;

@@ -2,8 +2,31 @@
 
 exports[`App Snapshot App render 1`] = `
 <ErrorBoundary>
-  <Connect(MovieSearchPage) />
-  <Connect(MovieDetailsPage) />
+  <Switch>
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/404"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/film/:id"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/search"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
   <Connect(Navigation) />
   <MoviesList />
   <Signature />

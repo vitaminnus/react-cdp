@@ -2,12 +2,22 @@ import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Film from '../index';
+import Film from '../Film';
 
 const renderer = new ShallowRenderer();
 Enzyme.configure({ adapter: new Adapter() });
 
+const location = {
+  search: '',
+  pathname: '/',
+};
+
 const onClick = jest.fn();
+const onKeyPress = jest.fn();
+
+const history = {
+  push: () => {},
+};
 
 const film = {
   film: {
@@ -28,14 +38,14 @@ const film2 = {
   },
 };
 
-describe('Film Snapshot', () => {
-  test('renders', () => {
+describe('Film Snapshots', () => {
+  test('render only component', () => {
     const component = renderer.render(
       <Film {...film} onClick={onClick} />,
     );
     expect(component).toMatchSnapshot();
   });
-  test('renders without PosterPath', () => {
+  test('render component without PosterPath', () => {
     const component = renderer.render(
       <Film {...film2} onClick={onClick} />,
     );
@@ -46,17 +56,17 @@ describe('Film Snapshot', () => {
 describe('Film clickHandler should works', () => {
   it('click to the film should call clickHandler', () => {
     const wrapper = shallow(
-      <Film {...film} onClick={onClick} />,
+      <Film {...film} history={history} />,
     );
     const instance = wrapper.instance();
-    const spy = jest.spyOn(instance, 'onClickHandler');
-    wrapper.instance().forceUpdate();
+    instance.onClickHandler = jest.fn();
+    instance.forceUpdate();
     wrapper.find('.container').prop('onClick')();
-    expect(spy).toHaveBeenCalled();
+    expect(instance.onClickHandler).toHaveBeenCalled();
   });
   it('keyPress to the enter button on film should call onKeyPressHandler', () => {
     const wrapper = shallow(
-      <Film {...film} onClick={onClick} />,
+      <Film {...film} history={history} location={location} />,
     );
     const e = {
       keyCode: 13,
@@ -69,7 +79,7 @@ describe('Film clickHandler should works', () => {
   });
   it("keyPress not to the enter button on film shouldn't call onKeyPressHandler", () => {
     const wrapper = shallow(
-      <Film {...film} onClick={onClick} />,
+      <Film {...film} onKeyPress={onKeyPress} />,
     );
     const e = {
       keyCode: 0,

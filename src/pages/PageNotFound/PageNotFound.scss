@@ -1,0 +1,48 @@
+@import "../../utils/constants.scss";
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background-color: white;
+
+  .message {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .textHead {
+      font-family: $helvetica;
+      font-size: 70px;
+      color: black;
+      text-align: center;
+    }
+
+    .textBody {
+      font-family: $helvetica;
+      font-size: 46px;
+      color: gray;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-size-screen) {
+  .container {
+    .message {
+      .textHead {
+        font-size: 45px;
+      }
+
+      .textBody {
+        font-size: 20px;
+      }
+    }
+  }
+}
