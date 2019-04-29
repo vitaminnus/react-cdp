@@ -19,18 +19,3 @@ exports[`Header Snapshot renders 1`] = `
   </Link>
 </header>
 `;
-
-exports[`Header Snapshot renders 2`] = `
-<header
-  className="header"
->
-  <p
-    className="logo"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    role="presentation"
-  >
-    netflixroulette
-  </p>
-</header>
-`;

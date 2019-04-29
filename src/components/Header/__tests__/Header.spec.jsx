@@ -1,28 +1,11 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import Testrenderer from 'react-test-renderer';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Provider } from 'react-redux';
-import HeaderContainer from '../index';
 import Header from '../Header';
 
 const renderer = new ShallowRenderer();
 Enzyme.configure({ adapter: new Adapter() });
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
-const store = mockStore({
-  film: {
-    id: '13456',
-    title: 'Captain Marvel',
-    poster_path: '../../assets/images/poster.jpg',
-    genres: ['Drama', 'Comedy'],
-    release_date: '1984-12-03',
-  },
-});
 
 const showSearchPage = jest.fn();
 const fetchAllFilms = jest.fn();
@@ -31,14 +14,6 @@ describe('Header Snapshot', () => {
   test('renders', () => {
     const component = renderer.render(
       <Header showSearchPage={showSearchPage} fetchAllFilms={fetchAllFilms} />,
-    );
-    expect(component).toMatchSnapshot();
-  });
-  test('renders', () => {
-    const component = Testrenderer.create(
-      <Provider store={store}>
-        <HeaderContainer />
-      </Provider>,
     );
     expect(component).toMatchSnapshot();
   });

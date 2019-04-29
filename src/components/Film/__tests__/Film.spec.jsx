@@ -41,13 +41,13 @@ const film2 = {
 describe('Film Snapshots', () => {
   test('render only component', () => {
     const component = renderer.render(
-      <Film {...film} onClick={onClick} />,
+      <Film {...film} onClick={onClick} history={history} location={location} />,
     );
     expect(component).toMatchSnapshot();
   });
   test('render component without PosterPath', () => {
     const component = renderer.render(
-      <Film {...film2} onClick={onClick} />,
+      <Film {...film2} onClick={onClick} history={history} location={location} />,
     );
     expect(component).toMatchSnapshot();
   });
@@ -56,7 +56,7 @@ describe('Film Snapshots', () => {
 describe('Film clickHandler should works', () => {
   it('click to the film should call clickHandler', () => {
     const wrapper = shallow(
-      <Film {...film} history={history} />,
+      <Film {...film} history={history} location={location} />,
     );
     const instance = wrapper.instance();
     instance.onClickHandler = jest.fn();
@@ -79,7 +79,7 @@ describe('Film clickHandler should works', () => {
   });
   it("keyPress not to the enter button on film shouldn't call onKeyPressHandler", () => {
     const wrapper = shallow(
-      <Film {...film} onKeyPress={onKeyPress} />,
+      <Film {...film} history={history} location={location} onKeyPress={onKeyPress} />,
     );
     const e = {
       keyCode: 0,

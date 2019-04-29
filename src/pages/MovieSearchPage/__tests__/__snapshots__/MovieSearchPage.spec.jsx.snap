@@ -14,9 +14,7 @@ exports[`MovieSearchPage Snapshot no render if it is not needed 1`] = `
 </div>
 `;
 
-exports[`MovieSearchPage Snapshot renders 1`] = `null`;
-
-exports[`MovieSearchPage Snapshot with store render 1`] = `
+exports[`MovieSearchPage Snapshot render with store 1`] = `
 <div
   className="wrapper"
   id="MovieSearchPage"
@@ -27,14 +25,20 @@ exports[`MovieSearchPage Snapshot with store render 1`] = `
     <header
       className="header"
     >
-      <p
-        className="logo"
+      <a
+        className="link"
+        href="/"
         onClick={[Function]}
-        onKeyPress={[Function]}
-        role="presentation"
       >
-        netflixroulette
-      </p>
+        <p
+          className="logo"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="presentation"
+        >
+          netflixroulette
+        </p>
+      </a>
     </header>
     <div
       className="searchWrapper"
@@ -95,3 +99,5 @@ exports[`MovieSearchPage Snapshot with store render 1`] = `
   </section>
 </div>
 `;
+
+exports[`MovieSearchPage Snapshot renders 1`] = `null`;

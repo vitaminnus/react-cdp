@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import styles from './MovieDetailsPage.scss';
 import Header from '../../components/Header';
 import MovieDetails from '../../components/MovieDetails';
@@ -19,9 +20,20 @@ class MovieDetailsPage extends React.Component {
   }
 
   onClickHandler = () => {
-    const { showSearchPage, history } = this.props;
+    const {
+      showSearchPage,
+      history,
+      location,
+    } = this.props;
+    const parsed = queryString.parse(location.search);
+    const searchWord = parsed.q;
+    const searchBy = parsed.t;
     showSearchPage();
-    history.push('/');
+    if (searchWord) {
+      history.push(`/search?q=${searchWord}&t=${searchBy}`);
+    } else {
+      history.push('/');
+    }
   };
 
   loadMainFilm = () => {

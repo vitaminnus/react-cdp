@@ -53,11 +53,11 @@ const films = [
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  persistedStore:
+  films:
     {
       allFilms: films,
     },
-  notPersistedStore:
+  search:
     {
       searchBy: 'title',
       searchedWord: 'terminator',
