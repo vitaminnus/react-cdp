@@ -30,9 +30,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
-        query: {
-          presets: ['es2015'],
-        },
       },
       {
         test: /\.(sa|sc|c)ss$/,

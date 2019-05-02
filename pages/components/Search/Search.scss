@@ -1,4 +1,4 @@
-@import "../../utils/constants.scss";
+@import "../../../src/utils/constants.scss";
 
 .searchWrapper {
   display: flex;
@@ -16,7 +16,7 @@
   height: 33px;
   width: 100%;
   background-color: black;
-  background-image: url(../../assets/images/search-icon.png);
+  background-image: url(../../../src/assets/images/search-icon.png);
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 20px;
