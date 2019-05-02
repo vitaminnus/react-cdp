@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MovieSearchPage from './MovieSearchPage';
-import { isShowSearchPage } from '../../modules/film/filmSelectors';
+import { isShowSearchPage } from '../../src/modules/film/filmSelectors';
 
 
 const mapStateToProps = state => ({

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './MovieSearchPage.scss';
-import Header from '../../components/Header';
-import Search from '../../components/Search';
-import '../../assets/images/cover-image.jpg';
+import Header from '../components/Header';
+import Search from '../components/Search';
+import '../../src/assets/images/cover-image.jpg';
 
 const MovieSearchPage = ({ isShowSearchPage }) => {
   if (!isShowSearchPage) return null;

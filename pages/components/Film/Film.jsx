@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ENTER_KEY } from '../../utils/consts';
+import { ENTER_KEY } from '../../../src/utils/consts';
 import styles from './Film.scss';
 import FilmInfo from '../FilmInfo';
-import defaultPoster from '../../assets/images/default-poster.jpg';
+import defaultPoster from '../../../src/assets/images/default-poster.jpg';
 
 class Film extends React.Component {
   onClickHandler = () => {

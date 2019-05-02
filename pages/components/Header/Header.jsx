@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { ESC_KEY } from '../../utils/consts';
+import { ESC_KEY } from '../../../src/utils/consts';
 import styles from './Header.scss';
 
 class Header extends React.Component {
@@ -20,7 +20,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className={styles.header}>
-        <Link to="/" className={styles.link}>
+        <Link href="/" className={styles.link}>
           <p
             className={styles.logo}
             onClick={this.onClickHandler}

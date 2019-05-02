@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
-import { sortFilms } from '../../modules/films/filmsActions';
-import { getFilms } from '../../modules/films/filmsSelectors';
-import { getTypeOfSearch, getSearchingWord } from '../../modules/searchFilms/searchFilmsSelectors';
+import { sortFilms } from '../../../src/modules/films/filmsActions';
+import { getFilms } from '../../../src/modules/films/filmsSelectors';
+import { getTypeOfSearch, getSearchingWord } from '../../../src/modules/searchFilms/searchFilmsSelectors';
 
 const mapStateToProps = state => ({
   films: getFilms(state),

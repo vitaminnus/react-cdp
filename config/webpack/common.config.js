@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, '../../src/index.html'),
+  template: path.resolve(__dirname, '../../pages/index.html'),
   filename: './index.html',
 });
 
@@ -13,7 +13,7 @@ const cssLoader = process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.l
 module.exports = {
   target: 'web',
   entry: [
-    path.resolve(__dirname, '../../src/index.jsx'),
+    path.resolve(__dirname, '../../pages/index.jsx'),
   ],
   output: {
     publicPath: '/',
@@ -29,6 +29,9 @@ module.exports = {
         exclude: [path.resolve(__dirname, '../../node_modules/')],
         use: {
           loader: 'babel-loader',
+        },
+        query: {
+          presets: ['es2015'],
         },
       },
       {
@@ -53,7 +56,16 @@ module.exports = {
               sourceMap: true,
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [
+                // I have partials in this folder (colors, sizes, etc.)
+                path.resolve(__dirname, '../../src'),
+                path.resolve(__dirname, '../../pages'),
+              ],
+            },
+          },
         ],
       },
       {

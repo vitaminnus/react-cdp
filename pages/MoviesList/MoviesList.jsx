@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MoviesList.scss';
-import MovieInfo from '../../components/MovieInfo';
-import '../../assets/images/poster.jpg';
+import MovieInfo from '../components/MovieInfo';
+import '../../src/assets/images/poster.jpg';
 
 const MoviesList = () => (
   <div className={styles.wrapper}>

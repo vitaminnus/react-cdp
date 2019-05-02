@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './MovieDetails.scss';
-import defaultPoster from '../../assets/images/default-poster.jpg';
+import defaultPoster from '../../../src/assets/images/default-poster.jpg';
 
 const MovieDetails = (props) => {
   const {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import styles from './Search.scss';
-import { ENTER_KEY } from '../../utils/consts';
+import { ENTER_KEY } from '../../../src/utils/consts';
 
 const searchItems = [
   {

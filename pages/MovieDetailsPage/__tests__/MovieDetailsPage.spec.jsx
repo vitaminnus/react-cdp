@@ -9,8 +9,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import MovieDetailsPage from '../MovieDetailsPage';
 import MovieDetailsPageContainer from '../index';
-import Button from '../../../components/Button';
-import films from '../../../modules/mocks/getFilmsMock.json';
+import Button from '../../components/Button';
+import films from '../../../src/modules/mocks/getFilmsMock.json';
 
 const renderer = new ShallowRenderer();
 Enzyme.configure({ adapter: new Adapter() });

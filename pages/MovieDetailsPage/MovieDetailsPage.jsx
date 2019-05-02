@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 import styles from './MovieDetailsPage.scss';
-import Header from '../../components/Header';
-import MovieDetails from '../../components/MovieDetails';
-import Button from '../../components/Button';
-import '../../assets/images/cover-image.jpg';
+import Header from '../components/Header';
+import MovieDetails from '../components/MovieDetails';
+import Button from '../components/Button';
+import '../../src/assets/images/cover-image.jpg';
 
 class MovieDetailsPage extends React.Component {
   componentDidMount() {

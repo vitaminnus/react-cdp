@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MovieInfo from './MovieInfo';
-import { getFilms } from '../../modules/films/filmsSelectors';
+import { getFilms } from '../../../src/modules/films/filmsSelectors';
 
 
 const mapStateToProps = state => ({
