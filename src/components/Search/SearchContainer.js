@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Search from './Search';
+import { fetchFilmByRoute } from '../../modules/film/filmActions';
+import { fetchAllFilms } from '../../modules/films/filmsActions';
 import {
   searchFilm,
   cleanSearchField,
@@ -14,6 +17,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   searchFilm,
   cleanSearchField,
+  fetchAllFilms,
+  fetchFilmByRoute,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

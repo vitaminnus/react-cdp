@@ -3,14 +3,14 @@ import initialState from '../index';
 
 describe('SearchFilms Selectors', () => {
   const state = {
-    notPersistedStore: initialState,
+    search: initialState,
   };
   it('getSearchingWord selector', () => {
     expect(getSearchingWord(state))
-      .toEqual(state.notPersistedStore.searchedWord);
+      .toEqual(state.search.searchedWord);
   });
   it('getTypeOfSearch selector', () => {
     expect(getTypeOfSearch(state))
-      .toEqual(state.notPersistedStore.searchBy);
+      .toEqual(state.search.searchBy);
   });
 });

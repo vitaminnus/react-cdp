@@ -4,28 +4,18 @@ exports[`Header Snapshot renders 1`] = `
 <header
   className="header"
 >
-  <p
-    className="logo"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    role="presentation"
+  <Link
+    className="link"
+    to="/"
   >
-    netflixroulette
-  </p>
-</header>
-`;
-
-exports[`Header Snapshot renders 2`] = `
-<header
-  className="header"
->
-  <p
-    className="logo"
-    onClick={[Function]}
-    onKeyPress={[Function]}
-    role="presentation"
-  >
-    netflixroulette
-  </p>
+    <p
+      className="logo"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="presentation"
+    >
+      netflixroulette
+    </p>
+  </Link>
 </header>
 `;

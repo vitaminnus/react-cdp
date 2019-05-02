@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ENTER_KEY } from '../../utils/consts';
 import styles from './Film.scss';
 import FilmInfo from '../FilmInfo';
-import { ENTER_KEY } from '../../utils/consts';
 import defaultPoster from '../../assets/images/default-poster.jpg';
 
 class Film extends React.Component {
   onClickHandler = () => {
-    const { onClick, film } = this.props;
-    onClick(film);
+    const {
+      film: {
+        id,
+      },
+      history,
+      location,
+    } = this.props;
+    history.push(`/film/${id}${location.search}`);
   }
 
   onKeyPressHandler = (e) => {
@@ -61,7 +67,8 @@ Film.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string),
     posterPath: PropTypes.string,
   }),
-  onClick: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 Film.defaultProps = {

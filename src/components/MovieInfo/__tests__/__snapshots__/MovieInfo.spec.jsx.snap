@@ -1,109 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieInfo Snapshot render 1`] = `
-<div
-  className="list"
->
-  <Film
-    film={
-      Object {
-        "genres": Array [
-          "Drama",
-          "Comedy",
-        ],
-        "id": 353463654,
-        "overview": "Super movie sdfsfs",
-        "poster_path": "../../assets/images/poster.jpg",
-        "release_date": "1984-12-03",
-        "runtime": 150,
-        "tagline": "Super movie",
-        "title": "Captain Marvel",
-      }
-    }
-    onClick={[Function]}
-  />
-  <Film
-    film={
-      Object {
-        "genres": Array [
-          "Drama",
-          "Comedy",
-        ],
-        "id": 4676898,
-        "overview": "Super movie sdfsfs",
-        "poster_path": "../../assets/images/poster.jpg",
-        "release_date": "1984-12-03",
-        "runtime": 150,
-        "tagline": "Super movie",
-        "title": "Captain Marvel",
-      }
-    }
-    onClick={[Function]}
-  />
-  <Film
-    film={
-      Object {
-        "genres": Array [
-          "Drama",
-          "Comedy",
-        ],
-        "id": 23141515,
-        "overview": "Super movie sdfsfs",
-        "poster_path": "../../assets/images/poster.jpg",
-        "release_date": "1984-12-03",
-        "runtime": 150,
-        "tagline": "Super movie",
-        "title": "Captain Marvel",
-      }
-    }
-    onClick={[Function]}
-  />
-  <Film
-    film={
-      Object {
-        "genres": Array [
-          "Drama",
-          "Comedy",
-        ],
-        "id": 9068756,
-        "overview": "Super movie sdfsfs",
-        "poster_path": "../../assets/images/poster.jpg",
-        "release_date": "1984-12-03",
-        "runtime": 150,
-        "tagline": "Super movie",
-        "title": "Captain Marvel",
-      }
-    }
-    onClick={[Function]}
-  />
-  <Film
-    film={
-      Object {
-        "genres": Array [
-          "Drama",
-          "Comedy",
-        ],
-        "id": 133453456,
-        "overview": "Super movie sdfsfs",
-        "poster_path": "../../assets/images/poster.jpg",
-        "release_date": "1984-12-03",
-        "runtime": 150,
-        "tagline": "Super movie",
-        "title": "Captain Marvel",
-      }
-    }
-    onClick={[Function]}
-  />
-</div>
-`;
-
-exports[`MovieInfo Snapshot render without films in store 1`] = `
-<div
-  className="list"
-/>
-`;
-
-exports[`MovieInfo Snapshot with store render 1`] = `
+exports[`MovieInfo Snapshot render with store 1`] = `
 <div
   className="list"
 >
@@ -121,7 +18,7 @@ exports[`MovieInfo Snapshot with store render 1`] = `
         className="poster"
         style={
           Object {
-            "backgroundImage": "url(../../assets/images/poster.jpg)",
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/ldoY4fTZkGISMidNw60GHoNdgP8.jpg)",
           }
         }
       />
@@ -137,12 +34,12 @@ exports[`MovieInfo Snapshot with store render 1`] = `
             <div
               className="name"
             >
-              Captain Marvel
+              Guardians of the Galaxy Vol. 3
             </div>
             <div
               className="year"
             >
-              1984
+              2020
             </div>
           </div>
           <div
@@ -154,12 +51,17 @@ exports[`MovieInfo Snapshot with store render 1`] = `
               <span
                 className="genre"
               >
-                Drama
+                Action
               </span>
               <span
                 className="genre"
               >
-                Comedy
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
               </span>
             </div>
           </div>
@@ -181,7 +83,7 @@ exports[`MovieInfo Snapshot with store render 1`] = `
         className="poster"
         style={
           Object {
-            "backgroundImage": "url(../../assets/images/poster.jpg)",
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/432BowXw7a4fWXSONxBaFKqvW4f.jpg)",
           }
         }
       />
@@ -197,12 +99,12 @@ exports[`MovieInfo Snapshot with store render 1`] = `
             <div
               className="name"
             >
-              Captain Marvel
+              Transformers 7
             </div>
             <div
               className="year"
             >
-              1984
+              2019
             </div>
           </div>
           <div
@@ -214,12 +116,17 @@ exports[`MovieInfo Snapshot with store render 1`] = `
               <span
                 className="genre"
               >
-                Drama
+                Science Fiction
               </span>
               <span
                 className="genre"
               >
-                Comedy
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Adventure
               </span>
             </div>
           </div>
@@ -241,7 +148,7 @@ exports[`MovieInfo Snapshot with store render 1`] = `
         className="poster"
         style={
           Object {
-            "backgroundImage": "url(../../assets/images/poster.jpg)",
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/aMETsaNNcDc6g5ZatQtVbySnSaA.jpg)",
           }
         }
       />
@@ -257,12 +164,12 @@ exports[`MovieInfo Snapshot with store render 1`] = `
             <div
               className="name"
             >
-              Captain Marvel
+              Untitled Avengers
             </div>
             <div
               className="year"
             >
-              1984
+              2019
             </div>
           </div>
           <div
@@ -274,12 +181,17 @@ exports[`MovieInfo Snapshot with store render 1`] = `
               <span
                 className="genre"
               >
-                Drama
+                Action
               </span>
               <span
                 className="genre"
               >
-                Comedy
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
               </span>
             </div>
           </div>
@@ -301,7 +213,7 @@ exports[`MovieInfo Snapshot with store render 1`] = `
         className="poster"
         style={
           Object {
-            "backgroundImage": "url(../../assets/images/poster.jpg)",
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/yUOJHa9XmB1H0iYodG9Kb3YCc9T.jpg)",
           }
         }
       />
@@ -317,12 +229,12 @@ exports[`MovieInfo Snapshot with store render 1`] = `
             <div
               className="name"
             >
-              Captain Marvel
+              Shazam!
             </div>
             <div
               className="year"
             >
-              1984
+              2019
             </div>
           </div>
           <div
@@ -334,12 +246,22 @@ exports[`MovieInfo Snapshot with store render 1`] = `
               <span
                 className="genre"
               >
-                Drama
+                Action
               </span>
               <span
                 className="genre"
               >
-                Comedy
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Fantasy
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
               </span>
             </div>
           </div>
@@ -361,7 +283,7 @@ exports[`MovieInfo Snapshot with store render 1`] = `
         className="poster"
         style={
           Object {
-            "backgroundImage": "url(../../assets/images/poster.jpg)",
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/6qmsupE0opYPIaBGe7T5D2FBzLs.jpg)",
           }
         }
       />
@@ -377,12 +299,12 @@ exports[`MovieInfo Snapshot with store render 1`] = `
             <div
               className="name"
             >
-              Captain Marvel
+              X-Men: Dark Phoenix
             </div>
             <div
               className="year"
             >
-              1984
+              2019
             </div>
           </div>
           <div
@@ -394,12 +316,357 @@ exports[`MovieInfo Snapshot with store render 1`] = `
               <span
                 className="genre"
               >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/98tbNloMBztAVnWpAznKKVUdi2O.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Journey 3: From the Earth to the Moon
+            </div>
+            <div
+              className="year"
+            >
+              2018
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Fantasy
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/sshNRCbtU2ON8SiWLycQzr05doX.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Aquaman
+            </div>
+            <div
+              className="year"
+            >
+              2018
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Fantasy
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/A2W75CVz9l8gEeWhQiiftlOCkgi.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Mission: Impossible - Fallout
+            </div>
+            <div
+              className="year"
+            >
+              2018
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Thriller
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/ln6d5Okr6VK5vfQVobJTiYxeD0l.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Jurassic World: Fallen Kingdom
+            </div>
+            <div
+              className="year"
+            >
+              2018
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
                 Drama
               </span>
               <span
                 className="genre"
               >
-                Comedy
+                Science Fiction
+              </span>
+              <span
+                className="genre"
+              >
+                Thriller
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container"
+    id="film"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="presentation"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="poster"
+        style={
+          Object {
+            "backgroundImage": "url(https://image.tmdb.org/t/p/w500/uJ6OnE3CzGWq6buLINAbdBqa0gV.jpg)",
+          }
+        }
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="film-description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <div
+              className="name"
+            >
+              Solo: A Star Wars Story
+            </div>
+            <div
+              className="year"
+            >
+              2018
+            </div>
+          </div>
+          <div
+            className="info"
+          >
+            <div
+              className="genres"
+            >
+              <span
+                className="genre"
+              >
+                Action
+              </span>
+              <span
+                className="genre"
+              >
+                Adventure
+              </span>
+              <span
+                className="genre"
+              >
+                Family
+              </span>
+              <span
+                className="genre"
+              >
+                Science Fiction
               </span>
             </div>
           </div>

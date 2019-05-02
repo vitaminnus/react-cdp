@@ -3,30 +3,26 @@ import initialState from '../index';
 
 describe('Films Selectors', () => {
   const state = {
-    persistedStore: initialState,
+    films: initialState,
   };
   it('getFilms selector', () => {
     expect(selectors.getFilms(state))
-      .toEqual(state.persistedStore.allFilms);
+      .toEqual(state.films.allFilms);
   });
   it('getFetchingFilms selector', () => {
     expect(selectors.getIsFetchingFilms(state))
-      .toEqual(state.persistedStore.isFetchingFilms);
+      .toEqual(state.films.isFetchingFilms);
   });
   it('getFetchedFilms selector', () => {
     expect(selectors.getIsFetchedFilms(state))
-      .toEqual(state.persistedStore.isFetchedFilms);
+      .toEqual(state.films.isFetchedFilms);
   });
   it('getErrorFilms selector', () => {
     expect(selectors.getErrorFilms(state))
-      .toEqual(state.persistedStore.errorFilms);
+      .toEqual(state.films.errorFilms);
   });
   it('getMainFilm selector', () => {
     expect(selectors.getMainFilm(state))
-      .toEqual(state.persistedStore.mainFilm);
-  });
-  it('isShowSearchPage selector', () => {
-    expect(selectors.isShowSearchPage(state))
-      .toEqual(state.persistedStore.showSearchPage);
+      .toEqual(state.films.mainFilm);
   });
 });

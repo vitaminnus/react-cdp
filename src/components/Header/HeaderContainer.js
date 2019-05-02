@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './Header';
-import {
-  fetchAllFilms,
-  showSearchPage,
-} from '../../modules/films/filmsActions';
+import { fetchAllFilms } from '../../modules/films/filmsActions';
+import { showSearchPage } from '../../modules/film/filmActions';
 
 const mapDispatchToProps = {
   fetchAllFilms,

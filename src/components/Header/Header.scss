@@ -1,11 +1,15 @@
 @import "../../utils/constants.scss";
 
 .header {
-  color: $light-red;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+
+  .link {
+    text-decoration: none;
+    color: $light-red;
+  }
 
   .logo {
     font-size: 25px;

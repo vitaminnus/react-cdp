@@ -1,6 +1,7 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import Testrenderer from 'react-test-renderer';
+import { BrowserRouter as Router } from 'react-router-dom';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Enzyme, { shallow } from 'enzyme';
@@ -12,28 +13,44 @@ import SearchContainer from '../index';
 const renderer = new ShallowRenderer();
 Enzyme.configure({ adapter: new Adapter() });
 
+const fetchFilmByRoute = jest.fn();
+const searchFilm = jest.fn();
+const history = {
+  push: jest.fn(),
+};
+
+const location = {};
+const match = {};
+
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore({
-  notPersistedStore:
+  search:
     {
       searchBy: 'title',
       searchedWord: 'word',
     },
 });
-const searchFilm = jest.fn();
 
 describe('Search Snapshot', () => {
   test('render', () => {
     const component = renderer.render(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     expect(component).toMatchSnapshot();
   });
   test('with store render', () => {
     const component = Testrenderer.create(
       <Provider store={store}>
-        <SearchContainer />
+        <Router>
+          <SearchContainer />
+        </Router>
       </Provider>,
     );
     expect(component).toMatchSnapshot();
@@ -41,12 +58,21 @@ describe('Search Snapshot', () => {
 });
 
 describe('Search clickHandler should work', () => {
-  it('click to the search button should clean search field', () => {
+  it('click to the search button should call clickHandler', () => {
     const wrapper = shallow(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
+    const instance = wrapper.instance();
+    const spy = jest.spyOn(instance, 'onClickHandler');
+    wrapper.instance().forceUpdate();
     wrapper.find('[text="SEARCH"]').prop('onClick')();
-    expect(wrapper.state().word).toEqual('');
+    expect(spy).toHaveBeenCalled();
   });
   it('type the word to the input field should save it in state', () => {
     const mockWord = 'word';
@@ -56,7 +82,13 @@ describe('Search clickHandler should work', () => {
       },
     };
     const wrapper = shallow(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     wrapper.find('[type="text"]').prop('onChange')(e);
     expect(wrapper.state().word).toEqual(mockWord);
@@ -73,7 +105,13 @@ describe('Search clickHandler should work', () => {
       eventMap[event] = cb;
     });
     const wrapper = Enzyme.mount(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     wrapper.setState({ word: mockWord });
     eventMap.keypress(e);
@@ -91,7 +129,13 @@ describe('Search clickHandler should work', () => {
       eventMap[event] = cb;
     });
     const wrapper = Enzyme.mount(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     wrapper.setState({ word: mockWord });
     eventMap.keypress(e);
@@ -107,14 +151,26 @@ describe('Search clickHandler should work', () => {
       },
     };
     const wrapper = Enzyme.mount(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     wrapper.find('[data-attr="genres"]').prop('onClick')(e);
     expect(wrapper.state().searchBy).toEqual(mockType);
   });
   test('lifecycle method should have been called', () => {
     const component = Testrenderer.create(
-      <Search searchFilm={searchFilm} />,
+      <Search
+        fetchFilmByRoute={fetchFilmByRoute}
+        searchFilm={searchFilm}
+        history={history}
+        location={location}
+        match={match}
+      />,
     );
     component.unmount();
   });
