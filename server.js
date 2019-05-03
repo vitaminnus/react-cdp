@@ -1,6 +1,8 @@
 const express = require('express');
 const nextApp = require('next');
 const path = require('path');
+const { createServer } = require('http');
+const { parse } = require('url');
 const webpack = require('webpack');
 const config = require('./config/webpack/dev.config.js');
 
@@ -12,13 +14,19 @@ const server = express();
 if (!dev) {
   app.prepare()
     .then(() => {
-      server.get('*', (req, res) => handle(req, res));
+      createServer((req, res) => {
+        const parsedUrl = parse(req.url, true);
+        const rootStaticFiles = ['/favicon.ico'];
+        if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
+          const staticPath = path.join(__dirname, 'static', parsedUrl.pathname);
+          app.serveStatic(req, res, staticPath);
+        } else {
+          handle(req, res, parsedUrl);
+        }
+      }).listen(process.env.PORT || 4100, () => {
+        console.log(`Example app listening on port ${process.env.PORT || 4100}!\n`); // eslint-disable-line no-console
+      });
     });
-  // app.use(express.static(path.join(__dirname, 'build')));
-  // app.use('*', (req, res) => {
-  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  // });
-  // https://github.com/zeit/next.js/blob/canary/examples/root-static-files/server.js
 } else {
   const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
   const webpackHotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line global-require
@@ -43,8 +51,7 @@ if (!dev) {
       return res.end();
     });
   });
+  server.listen(process.env.PORT || 4100, () => {
+    console.log('Example app listening on port 4100!\n'); // eslint-disable-line no-console
+  });
 }
-
-server.listen(process.env.PORT || 4100, () => {
-  console.log('Example app listening on port 4100!\n'); // eslint-disable-line no-console
-});
