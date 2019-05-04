@@ -54,6 +54,7 @@ export function fetchFilmByRoute(location, match, history) {
     const searchBy = parsed.t;
     if (history.location.pathname === '/') {
       dispatch(fetchAllFilms());
+      dispatch(showSearchPage());
     } else if (filmID && !searchWord) {
       dispatch(fetchFilm(filmID));
       dispatch(fetchAllFilms());

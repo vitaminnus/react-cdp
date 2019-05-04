@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'next/router';
 import Header from './Header';
 import { fetchAllFilms } from '../../../src/modules/films/filmsActions';
 import { showSearchPage } from '../../../src/modules/film/filmActions';
@@ -8,4 +9,4 @@ const mapDispatchToProps = {
   showSearchPage,
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default withRouter(Header);

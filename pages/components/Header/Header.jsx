@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { ESC_KEY } from '../../../src/utils/consts';
 import styles from './Header.scss';
 
 class Header extends React.Component {
   onClickHandler = () => {
-    const { showSearchPage, fetchAllFilms } = this.props;
-    showSearchPage();
-    fetchAllFilms();
+    const { router } = this.props;
+    router.push('/');
   }
 
   onKeyPressHandler = (e) => {
@@ -20,25 +20,21 @@ class Header extends React.Component {
   render() {
     return (
       <header className={styles.header}>
-        <Link to="/">
-          <p
-            className={styles.logo}
-            onClick={this.onClickHandler}
-            onKeyPress={this.onKeyPressHandler}
-            role="presentation"
-          >
-            netflixroulette
-          </p>
-        </Link>
+        <p
+          className={styles.logo}
+          onClick={this.onClickHandler}
+          onKeyPress={this.onKeyPressHandler}
+          role="presentation"
+        >
+          netflixroulette
+        </p>
       </header>
     );
   }
 }
 
-
 Header.propTypes = {
-  showSearchPage: PropTypes.func.isRequired,
-  fetchAllFilms: PropTypes.func.isRequired,
+  router: PropTypes.func.isRequired,
 };
 
-export default Header;
+export default withRouter(Header);
