@@ -30,7 +30,7 @@ export const sortFilms = payload => ({
 export function fetchFilms(url) {
   return (dispatch) => {
     dispatch(receiveFilmsRequest());
-    axios.get(url)
+    return axios.get(url)
       .then((response) => {
         dispatch(receiveFilmsSuccess({ films: response.data.data, url }));
       })
@@ -41,7 +41,7 @@ export function fetchFilms(url) {
 export function fetchAllFilms() {
   return (dispatch) => {
     dispatch(cleanSearchField());
-    dispatch(fetchFilms(urlFilms));
+    return dispatch(fetchFilms(urlFilms));
   };
 }
 

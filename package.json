@@ -61,6 +61,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
+    "url": "^0.11.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.1",

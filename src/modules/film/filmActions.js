@@ -38,7 +38,7 @@ export const makeMainFilm = payload => ({
 export function fetchFilm(id) {
   return (dispatch) => {
     dispatch(receiveFilmRequest());
-    axios.get(`${urlFilm}/${id}`)
+    return axios.get(`${urlFilm}/${id}`)
       .then((response) => {
         dispatch(receiveFilmSuccess({ film: response.data }));
       })
@@ -48,12 +48,17 @@ export function fetchFilm(id) {
 
 export function fetchFilmByRoute(location, match, history) {
   return (dispatch) => {
+    console.log('fetchFilmByRoute');
+    console.log('location', location);
+    console.log('match', match);
+    console.log('history', history);
+    console.log('dispatch', dispatch);
     const parsed = queryString.parse(location.search);
     const filmID = match.params.id;
     const searchWord = parsed.q;
     const searchBy = parsed.t;
     if (history.location.pathname === '/') {
-      dispatch(fetchAllFilms());
+      return dispatch(fetchAllFilms());
     } else if (filmID && !searchWord) {
       dispatch(fetchFilm(filmID));
       dispatch(fetchAllFilms());
