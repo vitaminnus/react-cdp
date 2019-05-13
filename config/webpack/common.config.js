@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer');
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../../src/index.html'),
-  filename: './index.html',
+  filename: './template.html',
 });
 
 const cssLoader = process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader';
