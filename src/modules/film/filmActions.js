@@ -72,7 +72,7 @@ export function fetchFilmByRoute(location, match, history) {
       dispatch(fetchFilmsBySearch(searchWord, searchBy));
       dispatch(fetchFilm(filmID));
     } else {
-      history.push('/404');
+      return history.push('/404');
     }
   };
 }

@@ -6,10 +6,14 @@ const config = require('./config/webpack/dev.config.js');
 const app = express();
 
 if (process.env.NODE_ENV === 'production') {
+  const serverRenderer = require('./build/js/serverRenderer').default;
+  console.log('serverrenderer', serverRenderer);
   app.use(express.static(path.join(__dirname, 'build')));
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+  // app.use('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // });
+  app.use(express.static('public'));
+  app.use(serverRenderer());
 } else {
   const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
   const webpackHotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line global-require

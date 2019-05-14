@@ -1,20 +1,27 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
+const nodeExternals = require('webpack-node-externals');
 const autoprefixer = require('autoprefixer');
-const common = require('./common.config.js');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const common = require('./common.config');
 
 module.exports = merge(common, {
-  name: 'development',
-  target: 'web',
-  entry: [
-    'webpack-hot-middleware/client',
-  ],
+  name: 'server',
+  target: 'node',
+  entry: path.resolve(__dirname, '../../serverRenderer.js'),
+  externals: [nodeExternals()],
+  output: {
+    filename: 'js/serverRenderer.js',
+    libraryTarget: 'commonjs2',
+    path: path.resolve(__dirname, '../../build'),
+  },
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
+        include: /src/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -36,14 +43,12 @@ module.exports = merge(common, {
           'sass-loader',
         ],
       },
-      {
-        test: /\.jsx?$/,
-        include: /node_modules/,
-        use: ['react-hot-loader/webpack'],
-      },
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[name].css',
+    }),
   ],
 });

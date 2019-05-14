@@ -8,8 +8,5 @@ require('@babel/register')({
     '@babel/plugin-proposal-class-properties',
   ],
 });
-require('ignore-styles');
-require('css-modules-require-hook')({
-  generateScopedName: '[name]__[local]___[hash:base64:5]',
-});
+// require('ignore-styles');
 require('./ssr-server');
