@@ -3,7 +3,6 @@ const initialState = {
   isFetchingFilm: false,
   isFetchedFilm: false,
   mainFilm: {},
-  showSearchPage: true,
 };
 
 export default initialState;

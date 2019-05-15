@@ -7,11 +7,9 @@
     "node": "10.3.0"
   },
   "scripts": {
-    "start": "node server",
-    "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack/prod.config.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack",
-    "prod": "npm run build:client && cross-env NODE_ENV=production node server",
-    "server": "npm run build:server && cross-env NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=development node server",
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack",
+    "server": "npm run build && cross-env NODE_ENV=production node server.js",
     "test": "jest --config ./config/jest/jest.config.js",
     "cypress": "cypress open",
     "lint": "eslint . && stylelint ./**/*.scss",
@@ -92,6 +90,7 @@
     "stylelint-scss": "^3.5.4",
     "terser-webpack-plugin": "^1.2.3",
     "webpack-dev-middleware": "^3.6.1",
-    "webpack-hot-middleware": "^2.24.3"
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-hot-server-middleware": "^0.6.0"
   }
 }

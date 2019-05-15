@@ -67,4 +67,16 @@ module.exports = merge(common, {
       filename: 'css/[name].css',
     }),
   ].filter(Boolean),
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 });

@@ -26,10 +26,6 @@ export const receiveFilmError = payload => ({
   payload,
 });
 
-export const showSearchPage = () => ({
-  type: SHOW_SEARCH_PAGE,
-});
-
 export const makeMainFilm = payload => ({
   type: MAKE_MAIN_FILM,
   payload,

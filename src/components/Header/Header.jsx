@@ -6,8 +6,7 @@ import styles from './Header.scss';
 
 class Header extends React.Component {
   onClickHandler = () => {
-    const { showSearchPage, fetchAllFilms } = this.props;
-    showSearchPage();
+    const { fetchAllFilms } = this.props;
     fetchAllFilms();
   }
 
@@ -37,7 +36,6 @@ class Header extends React.Component {
 
 
 Header.propTypes = {
-  showSearchPage: PropTypes.func.isRequired,
   fetchAllFilms: PropTypes.func.isRequired,
 };
 

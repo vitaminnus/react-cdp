@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import getStore from './store';
 import App from './components/App';
 
-const store = getStore(window.REDUX_DATA);
+const store = getStore(window.PRELOADED_STATE);
 
 ReactDOM.hydrate(
   <Provider store={store}>

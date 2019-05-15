@@ -15,9 +15,7 @@ const rootReducer = combineReducers({
   search,
 });
 
-const initialState = {};
-
-export default () => createStore(
+export default initialState => createStore(
   rootReducer,
   initialState,
   compose(
