@@ -1,2 +1,2 @@
 (https://react-cdp.herokuapp.com/)
-# react-cdp
+# react-cdp-with-ssr
