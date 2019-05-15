@@ -7,7 +7,6 @@ const app = express();
 
 if (process.env.NODE_ENV === 'production') {
   const serverRenderer = require('./build/js/serverRenderer').default;
-  console.log('serverrenderer', serverRenderer);
   app.use(express.static(path.join(__dirname, 'build')));
   // app.use('*', (req, res) => {
   //   res.sendFile(path.join(__dirname, 'build', 'index.html'));

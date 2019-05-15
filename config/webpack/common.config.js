@@ -11,9 +11,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
   module: {
     rules: [
@@ -32,6 +29,20 @@ module.exports = {
               context: 'src/',
               emitFile: true,
               name: 'assets/images/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '../',
+              context: 'src/',
+              emitFile: true,
+              name: './[name].[ext]',
             },
           },
         ],

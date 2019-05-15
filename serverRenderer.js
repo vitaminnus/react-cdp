@@ -1,7 +1,3 @@
-// import express from 'express';
-// import path from 'path';
-// import fs from 'fs';
-
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -13,23 +9,25 @@ import { fetchFilmByRoute } from './src/modules/film/filmActions';
 
 function renderHTML(html, preloadedState) {
   return `
-      <!doctype html>
-      <html>
-        <head>
-          <meta charset=utf-8>
-          <title>React Server Side Rendering</title>
-          ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
-        </head>
-        <body>
-        <section id="index">${html}</section>
-          <script>
-            // WARNING: See the following for security issues around embedding JSON in HTML:
-            // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
-            window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-          </script>
-          <script src="/js/main.js"></script>
-        </body>
-      </html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>React-cdp</title>
+      ${process.env.NODE_ENV === 'development' ? '' : '<link href="/css/main.css" rel="stylesheet" type="text/css">'}
+    </head>
+    <body>
+      <section id="index">${html}</section>
+      <script>
+        // WARNING: See the following for security issues around embedding JSON in HTML:
+        // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+        window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+      </script>
+      <script src="/js/main.js"></script>
+    </body>
+    </html>      
   `;
 }
 
@@ -39,18 +37,25 @@ export default function serverRenderer() {
     const store = createStore();
 
     const url = urlapi.parse(req.url);
-    const { pathname } = url;
-    const params = { params: { id: pathname.match(/film/[0 - 9] * /i/) } };
+    const { pathname, search } = url;
+    const filmID = pathname.match(/film\/([0-9]+)/) ? pathname.match(/film\/([0-9]+)/)[1] : null;
+    const match = { params: { id: filmID } };
+    const history = { location: { pathname } };
+    const location = {
+      search,
+    };
 
-    store.dispatch(fetchFilmByRoute(pathname, params, { location: { pathname } }))
+    const renderRoot = () => (
+      <Provider store={store}>
+        <StaticRouter context={context} location={req.url}>
+          <App />
+        </StaticRouter>
+      </Provider>
+    );
+
+    store.dispatch(fetchFilmByRoute(location, match, history))
       .then(() => {
-        const jsx = (
-          <Provider store={store}>
-            <StaticRouter context={context} location={req.url}>
-              <App />
-            </StaticRouter>
-          </Provider>
-        );
+        const htmlString = renderToString(renderRoot());
 
         if (context.url) {
           res.writeHead(302, {
@@ -60,15 +65,9 @@ export default function serverRenderer() {
           return;
         }
 
-        const reactDom = renderToString(jsx);
         const reduxState = store.getState();
-        // console.log('reduxState', reduxState);
-        // const template = fs.readFileSync(path.join(__dirname, 'build', 'template.html'), 'utf8');
-        // const result = template.replace('<section id="index"></section>',
-        //   `<section id="index">${reactDom}</section>`
-        //   + `<script>window.REDUX_DATA = ${JSON.stringify(reduxState)}</script>`);
 
-        res.send(renderHTML(reactDom, reduxState));
+        res.send(renderHTML(htmlString, reduxState));
       });
   };
 }

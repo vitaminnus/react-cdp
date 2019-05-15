@@ -48,31 +48,40 @@ export function fetchFilm(id) {
 
 export function fetchFilmByRoute(location, match, history) {
   return (dispatch) => {
-    console.log('fetchFilmByRoute');
-    console.log('location', location);
-    console.log('match', match);
-    console.log('history', history);
-    console.log('dispatch', dispatch);
     const parsed = queryString.parse(location.search);
     const filmID = match.params.id;
     const searchWord = parsed.q;
     const searchBy = parsed.t;
+    console.log('fetchFilmByRoute');
+    console.log('pathname', history.location.pathname);
+    console.log('location', location);
+    console.log('match', match);
+    console.log('searchWord', searchWord);
+    console.log('searchBy', searchBy);
     if (history.location.pathname === '/') {
       return dispatch(fetchAllFilms());
-    } else if (filmID && !searchWord) {
-      dispatch(fetchFilm(filmID));
-      dispatch(fetchAllFilms());
-    } else if (!filmID && searchWord) {
-      dispatch(saveTypeOfSearch(searchBy));
-      dispatch(saveSearchingWord(searchWord));
-      dispatch(fetchFilmsBySearch(searchWord, searchBy));
-    } else if (filmID && searchWord) {
-      dispatch(saveTypeOfSearch(searchBy));
-      dispatch(saveSearchingWord(searchWord));
-      dispatch(fetchFilmsBySearch(searchWord, searchBy));
-      dispatch(fetchFilm(filmID));
-    } else {
-      return history.push('/404');
     }
+    if (filmID && !searchWord) {
+      return Promise.all([
+        dispatch(fetchFilm(filmID)),
+        dispatch(fetchAllFilms()),
+      ]);
+    }
+    if (!filmID && searchWord) {
+      return Promise.all([
+        dispatch(saveTypeOfSearch(searchBy)),
+        dispatch(saveSearchingWord(searchWord)),
+        dispatch(fetchFilmsBySearch(searchWord, searchBy)),
+      ]);
+    }
+    if (filmID && searchWord) {
+      return Promise.all([
+        dispatch(saveTypeOfSearch(searchBy)),
+        dispatch(saveSearchingWord(searchWord)),
+        dispatch(fetchFilmsBySearch(searchWord, searchBy)),
+        dispatch(fetchFilm(filmID)),
+      ]);
+    }
+    return history.push('/404');
   };
 }

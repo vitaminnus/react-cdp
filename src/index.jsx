@@ -13,5 +13,5 @@ ReactDOM.hydrate(
       <App />
     </BrowserRouter>
   </Provider>,
-  global.document.getElementById('index'),
+  document.getElementById('index'),
 );

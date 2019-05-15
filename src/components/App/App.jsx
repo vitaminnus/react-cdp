@@ -8,6 +8,7 @@ import PageNotFound from '../../pages/PageNotFound';
 import Navigation from '../Navigation';
 import MoviesList from '../../pages/MoviesList';
 import ErrorBoundary from '../ErrorBoundary';
+import favicon from '../../assets/favicon.ico'; // eslint-disable-line
 
 import './App.scss';
 

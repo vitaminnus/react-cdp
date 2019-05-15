@@ -23,11 +23,6 @@ module.exports = merge(common, {
     path.resolve(__dirname, '../../src/index.jsx'),
   ].filter(Boolean),
 
-  externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-  },
-
   module: {
     rules: [
       {
