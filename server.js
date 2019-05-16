@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const app = express();
 
 if (process.env.NODE_ENV === 'production') {
-  const serverRenderer = require('./build/js/serverRenderer').default;
+  const serverRenderer = require('./build/js/serverRenderer').default; // eslint-disable-line global-require
   app.use(express.static(path.join(__dirname, 'build')));
   // app.use('*', (req, res) => {
   //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -13,10 +13,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('public'));
   app.use(serverRenderer());
 } else {
-  const webpackDevMiddleware = require('webpack-dev-middleware');
-  const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackHotServerMiddleware = require('webpack-hot-server-middleware');
-  const webpackConfig = require('./config/webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
+  const webpackHotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line global-require
+  const webpackHotServerMiddleware = require('webpack-hot-server-middleware'); // eslint-disable-line global-require
+  const webpackConfig = require('./config/webpack'); // eslint-disable-line global-require
 
   const compiler = webpack(webpackConfig);
 

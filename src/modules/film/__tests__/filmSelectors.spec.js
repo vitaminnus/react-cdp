@@ -21,8 +21,4 @@ describe('Film Selectors', () => {
     expect(selectors.getErrorFilm(state))
       .toEqual(state.film.errorFilm);
   });
-  it('isShowSearchPage selector', () => {
-    expect(selectors.isShowSearchPage(state))
-      .toEqual(state.film.showSearchPage);
-  });
 });

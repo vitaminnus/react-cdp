@@ -48,12 +48,6 @@ export function fetchFilmByRoute(location, match, history) {
     const filmID = match.params.id;
     const searchWord = parsed.q;
     const searchBy = parsed.t;
-    console.log('fetchFilmByRoute');
-    console.log('pathname', history.location.pathname);
-    console.log('location', location);
-    console.log('match', match);
-    console.log('searchWord', searchWord);
-    console.log('searchBy', searchBy);
     if (history.location.pathname === '/') {
       return dispatch(fetchAllFilms());
     }
@@ -78,6 +72,6 @@ export function fetchFilmByRoute(location, match, history) {
         dispatch(fetchFilm(filmID)),
       ]);
     }
-    return history.push('/404');
+    return Promise.resolve(history.push('/404'));
   };
 }

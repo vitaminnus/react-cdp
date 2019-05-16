@@ -1,7 +1,6 @@
 import reducer from '../filmsReducer';
 import * as actions from '../filmsActions';
 import initialState from '../index';
-import getFilmMock from '../../mocks/getFilmMock';
 import getFilmsMock from '../../mocks/getFilmsMock';
 import sort from '../../../utils/sort';
 

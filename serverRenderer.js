@@ -42,7 +42,12 @@ export default function serverRenderer() {
     const { pathname, search } = url;
     const filmID = pathname.match(/film\/([0-9]+)/) ? pathname.match(/film\/([0-9]+)/)[1] : null;
     const match = { params: { id: filmID } };
-    const history = { location: { pathname } };
+    const history = {
+      location: { pathname },
+      push: (link) => {
+        res.set('location', link);
+      },
+    };
     const location = {
       search,
     };

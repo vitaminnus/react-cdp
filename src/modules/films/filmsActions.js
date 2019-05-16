@@ -46,7 +46,5 @@ export function fetchAllFilms() {
 }
 
 export function fetchFilmsBySearch(word, searchBy) {
-  return (dispatch) => {
-    dispatch(fetchFilms(`${urlFilms}?search=${word}&searchBy=${searchBy}`));
-  };
+  return dispatch => dispatch(fetchFilms(`${urlFilms}?search=${word}&searchBy=${searchBy}`));
 }
