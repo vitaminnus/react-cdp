@@ -2,3 +2,4 @@
 # react-cdp-with-ssr
 npm install
 npm run start
+npm run server
