@@ -3,7 +3,6 @@ import {
   FETCH_FILM_SUCCESS,
   FETCH_FILM_ERROR,
   MAKE_MAIN_FILM,
-  SHOW_SEARCH_PAGE,
 } from './filmActions';
 import initialState from './index';
 
@@ -15,7 +14,6 @@ const filmReducer = (state = initialState, action) => {
         isFetchingFilm: false,
         isFetchedFilm: true,
         mainFilm: action.payload.film,
-        showSearchPage: false,
         errorFilms: '',
       };
     case FETCH_FILM_REQUEST:
@@ -36,12 +34,6 @@ const filmReducer = (state = initialState, action) => {
       return {
         ...state,
         mainFilm: action.payload,
-        showSearchPage: false,
-      };
-    case SHOW_SEARCH_PAGE:
-      return {
-        ...state,
-        showSearchPage: true,
       };
     default:
       return {

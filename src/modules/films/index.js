@@ -5,7 +5,6 @@ const initialState = {
   isFetchedFilms: false,
   url: '',
   mainFilm: {},
-  showSearchPage: true,
 };
 
 export default initialState;

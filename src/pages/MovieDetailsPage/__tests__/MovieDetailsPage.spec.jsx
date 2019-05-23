@@ -32,7 +32,6 @@ const mockStore = configureMockStore(middlewares);
 const store = mockStore({
   film: {
     mainFilm: film,
-    showSearchPage: true,
   },
   films: { allFilms },
 });
@@ -62,36 +61,16 @@ const makeMainFilm = jest.fn();
 
 const emptyFilm = {};
 
-const showSearchPage = jest.fn();
-
 describe('MovieDetailsPage Snapshot', () => {
   test('renders', () => {
     const component = renderer.render(
       <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage={false}
         match={match}
         makeMainFilm={makeMainFilm}
         allFilms={allFilms}
         fetchFilmByRoute={fetchFilmByRoute}
         history={history}
         mainFilm={film}
-        location={location}
-      />,
-    );
-    expect(component).toMatchSnapshot();
-  });
-  test('no render if it is not needed', () => {
-    const component = renderer.render(
-      <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage
-        match={match}
-        makeMainFilm={makeMainFilm}
-        allFilms={allFilms}
-        fetchFilmByRoute={fetchFilmByRoute}
-        history={history}
-        mainFilm={emptyFilm}
         location={location}
       />,
     );
@@ -117,8 +96,6 @@ describe('MovieDetailsPage handler should work', () => {
   it('click to the search button should call clickHandler and show nothing if mainFilm is empty', () => {
     const wrapper = shallow(
       <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage={false}
         match={match}
         makeMainFilm={makeMainFilm}
         allFilms={allFilms}
@@ -137,8 +114,6 @@ describe('MovieDetailsPage handler should work', () => {
   it('click to the search button should call clickHandler film not found', () => {
     const wrapper = shallow(
       <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage={false}
         match={match1}
         makeMainFilm={makeMainFilm}
         allFilms={allFilms}
@@ -157,8 +132,6 @@ describe('MovieDetailsPage handler should work', () => {
   it('should make an extra request if URL changed', () => {
     const wrapper = shallow(
       <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage={false}
         match={match}
         allFilms={allFilms}
         makeMainFilm={makeMainFilm}
@@ -176,8 +149,6 @@ describe('MovieDetailsPage handler should work', () => {
   it('should make an extra request if URL not changed', () => {
     const wrapper = shallow(
       <MovieDetailsPage
-        showSearchPage={showSearchPage}
-        isShowSearchPage={false}
         match={match}
         allFilms={allFilms}
         makeMainFilm={makeMainFilm}

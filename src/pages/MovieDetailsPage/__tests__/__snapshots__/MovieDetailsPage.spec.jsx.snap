@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieDetailsPage Snapshot no render if it is not needed 1`] = `null`;
-
 exports[`MovieDetailsPage Snapshot renders 1`] = `
 <div
   className="wrapper"
@@ -39,4 +37,90 @@ exports[`MovieDetailsPage Snapshot renders 1`] = `
 </div>
 `;
 
-exports[`MovieDetailsPage Snapshot with store render 1`] = `null`;
+exports[`MovieDetailsPage Snapshot with store render 1`] = `
+<div
+  className="wrapper"
+  id="MovieDetailsPage"
+>
+  <section
+    className="section"
+  >
+    <header
+      className="header"
+    >
+      <a
+        className="link"
+        href="/"
+        onClick={[Function]}
+      >
+        <p
+          className="logo"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="presentation"
+        >
+          netflixroulette
+        </p>
+      </a>
+    </header>
+    <button
+      className="button big white searchButton"
+      data-attr={null}
+      id="searchDetailsButton"
+      onClick={[Function]}
+      type="button"
+    >
+      SEARCH
+    </button>
+    <div
+      className="container"
+    >
+      <div
+        className="wrapper"
+      >
+        <div
+          className="poster"
+          style={
+            Object {
+              "backgroundImage": "url(../../assets/images/poster.jpg)",
+            }
+          }
+        />
+        <div
+          className="description"
+        >
+          <h2
+            className="title"
+          >
+            Captain Marvel
+          </h2>
+          <h4
+            className="details"
+          >
+            Super movie
+          </h4>
+          <div
+            className="statistics"
+          >
+            <p
+              className="year"
+            >
+              1984
+            </p>
+            <p
+              className="duration"
+            >
+              150 min
+            </p>
+          </div>
+          <p
+            className="shortStory"
+          >
+            Super movie sdfsfs
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

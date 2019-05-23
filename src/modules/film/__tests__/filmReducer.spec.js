@@ -16,7 +16,6 @@ describe('Film Reducers', () => {
         isFetchingFilm: false,
         isFetchedFilm: true,
         mainFilm: mockPayload.film,
-        showSearchPage: false,
         errorFilms: '',
       });
   });
@@ -33,14 +32,6 @@ describe('Film Reducers', () => {
       .toEqual({
         ...initialState,
         mainFilm: getFilmMock,
-        showSearchPage: false,
-      });
-  });
-  it('show search page', () => {
-    expect(reducer(initialState, actions.showSearchPage()))
-      .toEqual({
-        ...initialState,
-        showSearchPage: true,
       });
   });
   it('fetch film error', () => {

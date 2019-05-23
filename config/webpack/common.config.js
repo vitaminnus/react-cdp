@@ -1,22 +1,12 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
-const htmlPlugin = new HtmlWebpackPlugin({
-  template: path.resolve(__dirname, '../../src/index.html'),
-  filename: './index.html',
-});
-
-const cssLoader = process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader';
+const isDevMod = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  target: 'web',
-  entry: [
-    path.resolve(__dirname, '../../src/index.jsx'),
-  ],
+  mode: process.env.NODE_ENV,
   output: {
-    publicPath: '/',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, '../../build'),
   },
   resolve: {
@@ -27,34 +17,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: [path.resolve(__dirname, '../../node_modules/')],
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          cssLoader,
-          {
-            loader: 'css-loader',
-            query: {
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                autoprefixer({
-                  browsers: ['ie >= 8', 'last 4 version'],
-                }),
-              ],
-              sourceMap: true,
-            },
-          },
-          'sass-loader',
-        ],
+        use: 'babel-loader',
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -66,6 +29,20 @@ module.exports = {
               context: 'src/',
               emitFile: true,
               name: 'assets/images/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '../',
+              context: 'src/',
+              emitFile: true,
+              name: './[name].[ext]',
             },
           },
         ],
@@ -85,11 +62,8 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
-    htmlPlugin,
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
-      chunkFilename: 'css/[id].[hash].css',
-    }),
+    isDevMod ? new webpack.NamedModulesPlugin() : new webpack.HashedModuleIdsPlugin(),
   ],
 };

@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import moxios from 'moxios'; // eslint-disable-line import/no-extraneous-dependencies
 import * as actions from '../searchFilmsActions';
 import * as filmsActions from '../../films/filmsActions';
-import getFilmsMock from '../../mocks/getFilmsMock';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

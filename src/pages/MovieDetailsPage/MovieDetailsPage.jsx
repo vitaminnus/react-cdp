@@ -21,14 +21,12 @@ class MovieDetailsPage extends React.Component {
 
   onClickHandler = () => {
     const {
-      showSearchPage,
       history,
       location,
     } = this.props;
     const parsed = queryString.parse(location.search);
     const searchWord = parsed.q;
     const searchBy = parsed.t;
-    showSearchPage();
     if (searchWord) {
       history.push(`/search?q=${searchWord}&t=${searchBy}`);
     } else {
@@ -55,9 +53,8 @@ class MovieDetailsPage extends React.Component {
   }
 
   render() {
-    const { mainFilm, isShowSearchPage } = this.props;
+    const { mainFilm } = this.props;
     const isMainFilm = Object.keys(mainFilm).length !== 0;
-    if (isShowSearchPage) return null;
     return (
       <div id="MovieDetailsPage" className={styles.wrapper}>
         <section className={styles.section}>
@@ -95,10 +92,8 @@ MovieDetailsPage.propTypes = {
     search: PropTypes.string,
   }).isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
-  showSearchPage: PropTypes.func.isRequired,
   fetchFilmByRoute: PropTypes.func.isRequired,
   makeMainFilm: PropTypes.func.isRequired,
-  isShowSearchPage: PropTypes.bool.isRequired,
 };
 
 MovieDetailsPage.defaultProps = {

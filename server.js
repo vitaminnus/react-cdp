@@ -1,39 +1,28 @@
 const express = require('express');
 const path = require('path');
 const webpack = require('webpack');
-const config = require('./config/webpack/dev.config.js');
 
 const app = express();
 
 if (process.env.NODE_ENV === 'production') {
+  const serverRenderer = require('./build/js/serverRenderer').default; // eslint-disable-line global-require
   app.use(express.static(path.join(__dirname, 'build')));
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
+  // app.use('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  // });
+  app.use(express.static('public'));
+  app.use(serverRenderer());
 } else {
   const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
   const webpackHotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line global-require
-  const compiler = webpack(config);
-  // Tell express to use the webpack-dev-middleware and use the webpack.config.js
-  // configuration file as a base.
-  app.use(webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath,
-  }));
-  app.use(webpackHotMiddleware(compiler));
-  // Serve the files on port 5000.
+  const webpackHotServerMiddleware = require('webpack-hot-server-middleware'); // eslint-disable-line global-require
+  const webpackConfig = require('./config/webpack'); // eslint-disable-line global-require
 
-  app.use('*', (req, res, next) => {
-    const filename = path.join(compiler.outputPath, '/index.html');
-    compiler.outputFileSystem.readFile(filename, (err, result) => {
-      if (err) {
-        return next(err);
-      }
-      res.set('content-type', 'text/html');
-      res.send(result);
-      return res.end();
-    });
-  });
+  const compiler = webpack(webpackConfig);
+
+  app.use(webpackDevMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler.compilers.find(c => c.name === 'client')));
+  app.use(webpackHotServerMiddleware(compiler));
 }
 
 app.listen(process.env.PORT || 4100, () => {

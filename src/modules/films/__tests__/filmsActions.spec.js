@@ -56,7 +56,7 @@ describe('getFilms actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
       done();
     });
-  });  
+  });
   it('success fetch searching films', (done) => {
     moxios.stubRequest(/reactjs-cdp.herokuapp.com/, {
       status: 200,

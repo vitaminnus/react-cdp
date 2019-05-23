@@ -26,10 +26,6 @@ export const receiveFilmError = payload => ({
   payload,
 });
 
-export const showSearchPage = () => ({
-  type: SHOW_SEARCH_PAGE,
-});
-
 export const makeMainFilm = payload => ({
   type: MAKE_MAIN_FILM,
   payload,
@@ -38,7 +34,7 @@ export const makeMainFilm = payload => ({
 export function fetchFilm(id) {
   return (dispatch) => {
     dispatch(receiveFilmRequest());
-    axios.get(`${urlFilm}/${id}`)
+    return axios.get(`${urlFilm}/${id}`)
       .then((response) => {
         dispatch(receiveFilmSuccess({ film: response.data }));
       })
@@ -53,21 +49,29 @@ export function fetchFilmByRoute(location, match, history) {
     const searchWord = parsed.q;
     const searchBy = parsed.t;
     if (history.location.pathname === '/') {
-      dispatch(fetchAllFilms());
-    } else if (filmID && !searchWord) {
-      dispatch(fetchFilm(filmID));
-      dispatch(fetchAllFilms());
-    } else if (!filmID && searchWord) {
-      dispatch(saveTypeOfSearch(searchBy));
-      dispatch(saveSearchingWord(searchWord));
-      dispatch(fetchFilmsBySearch(searchWord, searchBy));
-    } else if (filmID && searchWord) {
-      dispatch(saveTypeOfSearch(searchBy));
-      dispatch(saveSearchingWord(searchWord));
-      dispatch(fetchFilmsBySearch(searchWord, searchBy));
-      dispatch(fetchFilm(filmID));
-    } else {
-      history.push('/404');
+      return dispatch(fetchAllFilms());
     }
+    if (filmID && !searchWord) {
+      return Promise.all([
+        dispatch(fetchFilm(filmID)),
+        dispatch(fetchAllFilms()),
+      ]);
+    }
+    if (!filmID && searchWord) {
+      return Promise.all([
+        dispatch(saveTypeOfSearch(searchBy)),
+        dispatch(saveSearchingWord(searchWord)),
+        dispatch(fetchFilmsBySearch(searchWord, searchBy)),
+      ]);
+    }
+    if (filmID && searchWord) {
+      return Promise.all([
+        dispatch(saveTypeOfSearch(searchBy)),
+        dispatch(saveSearchingWord(searchWord)),
+        dispatch(fetchFilmsBySearch(searchWord, searchBy)),
+        dispatch(fetchFilm(filmID)),
+      ]);
+    }
+    return Promise.resolve(history.push('/404'));
   };
 }

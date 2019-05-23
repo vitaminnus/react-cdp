@@ -5,16 +5,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-}
 
-.section {
-  padding: 0 60px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 600px;
-  position: relative;
-  background: rgba(0, 0, 0, 0.65);
+  .section {
+    padding: 0 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.65);
+  }
 }
 
 .img {
